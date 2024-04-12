@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import usersRoute from './routes/users.routes.js';
+import loginRoute from './routes/logins.routes.js'
 
 // Create express app
 const app = express();
@@ -15,6 +16,8 @@ app.use(cors());
 
 // Load routes
 app.use(usersRoute);
+app.use(loginRoute);
+
 
 
 // Make database connection

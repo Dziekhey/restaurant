@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import { Schema, model} from 'mongoose';
 
 const orderSchema = new Schema({
@@ -14,8 +15,8 @@ const orderSchema = new Schema({
     createdAt: {type: Date, default: () => Date.now()},
     updatedAt: {type: Date, default: () => Date.now()},
     restaurant: {
-        type: Mongoose.Schema.Types.ObjectId,
-        ref: 'Restaurantprofile'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Restaurant'
     }
 });
 
