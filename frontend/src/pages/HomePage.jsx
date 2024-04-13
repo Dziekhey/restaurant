@@ -10,11 +10,11 @@ const HomePage = () => {
         <div>
           <Hero />
         </div>
-        <div>
-          <h1 className="text-2xl font-semibold text-white py-3">
+        <div className="px-16 lg:px-26 py-8">
+          <h1 className="text-2xl font-semibold text-white pb-5">
             Order from our handpicked favorites
           </h1>
-          <div>
+          <div className="flex flex-wrap items-center justify-around gap-5">
             {
                 restaurants.map((restaurant) => <RestaurantCard />)
             }

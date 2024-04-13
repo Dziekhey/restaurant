@@ -27,20 +27,18 @@ const RestaurantCard = () => {
           </div>
           <div className="p-4 textPart lg:flex w-full justify-between">
             <div className="space-y-1">
-            <div className="flex justify-between">
-              <p className="font-semibold pt-2 text-lg">Indian Fast Food</p>
-              <IconButton>
-                    {true?<FavoriteIcon />:<FavoriteBorderIcon />}
-                  </IconButton>
-                  </div>
+              <div className="flex  justify-between">
+                <p className="font-semibold pt-2 text-white text-lg">
+                  Ghanaian Fast Food
+                </p>
+                <IconButton className="text-white">
+                  {true ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </IconButton>
+              </div>
               <p className="text-white text-sm">
                 Craving it all? Dive into our global fla...
               </p>
-              <div>
-                
-                  
-                
-              </div>
+              <div></div>
             </div>
           </div>
         </Card>

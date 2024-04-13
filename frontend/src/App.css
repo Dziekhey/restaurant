@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 
+/* .MuiIconButton-root{
+    color: white;
+} */
 
 body {
     background: #ecf296;
