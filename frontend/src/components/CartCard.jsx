@@ -43,7 +43,17 @@ const CartCard = () => {
           ))}
         </div>
         <div className="pt-5 lg:flex lg:justify-end">
-          <Button type="submit" variant="contained">
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{
+              color: "#3c2a0c",
+              backgroundColor: "#b6a018",
+              "&:hover": {
+                backgroundColor: "#917617",
+              },
+            }}
+          >
             Order
           </Button>
         </div>

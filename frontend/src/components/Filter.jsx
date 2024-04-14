@@ -4,7 +4,7 @@ import {
   RadioGroup,
   Typography,
   FormControlLabel,
-  Radio,
+  Radio, Divider
 } from "@mui/material";
 import { lime } from '@mui/material/colors';
 import { categories } from "../data/Constants";
@@ -29,7 +29,7 @@ const Filter = () => {
               name="food_category"
               value={value}
             >
-              {categories.map((category) => (
+              {categories.map((category,index) => (<>
                 <FormControlLabel
                   key={category}
                   value={category}
@@ -40,9 +40,10 @@ const Filter = () => {
                     },
                   }}  />}
                   label={category}
-                  className="text-[#674e1c]"
+                  className="text-[#674e1c] my-4"
                 />
-              ))}
+                {index!== categories.length-1 && <Divider />}
+              </>))}
             </RadioGroup>
           </FormControl>
         </div>
