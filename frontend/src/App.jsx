@@ -1,16 +1,18 @@
 import React from 'react';
 import './App.css'
 import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import RestaurantPage from './pages/RestaurantPage';
+import HomePage from '../src/pages/home/HomePage.jsx'
+import RestaurantPage from './pages/restaurant/RestaurantPage';
+import CartPage from './pages/cart/CartPage.jsx';
 
 
 const App = () => {
   return (
     <>
    <Navbar />
-   {/* <HomePage /> */}
-   <RestaurantPage />
+  {/* <HomePage /> */}
+   {/* <RestaurantPage /> */}
+   <CartPage />
     </>
   )
 }

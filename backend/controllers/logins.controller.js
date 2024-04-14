@@ -19,8 +19,10 @@ export const logIns = async (req, res, next) => {
         
         const match =  await comparePassword(userPassword, user.userPassword);
         if (match) {
-            return res.json('Password match');
-        };
+            return res.json('Password match')
+        } else {
+            return res.json("Password don't match");
+        }
        
     } catch (error) {
         next(error);

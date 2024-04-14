@@ -1,7 +1,7 @@
 import React from "react";
-import Hero from "../components/Hero";
-import { restaurants } from "../data/Constants.jsx";
-import RestaurantCard from "../components/RestaurantCard.jsx";
+import Hero from "../../components/hero/Hero.jsx";
+import { restaurants } from "../../data/Constants.jsx";
+import RestaurantCard from "../../components/RestaurantCard.jsx";
 
 const HomePage = () => {
   return (

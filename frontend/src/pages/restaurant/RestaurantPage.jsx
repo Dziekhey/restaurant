@@ -1,8 +1,12 @@
 import React from "react";
-import sample from "../assets/hero.jpg";
+import sample from "../../assets/hero.jpg";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Divider } from "@mui/material";
+import Filter from "../../components/Filter.jsx";
+import { menus } from "../../data/Constants.jsx";
+import MenuCard from "../../components/MenuCard.jsx";
+
 
 const RestaurantPage = () => {
   return (
@@ -37,8 +41,14 @@ const RestaurantPage = () => {
         <Divider />
         <div className="px-5 lg:px-20">
           <section className="pt-[2rem] lg:flex relative">
-            <div className="space-y-10 lg:w-[20%] filter">Filter</div>
-            <div className="space-y-5 lg:w-[80%] lg:pl-10 ">Menu</div>
+            <div className="space-y-10 lg:w-[20%] filter">
+              <Filter />
+            </div>
+            <div className="space-y-5 lg:w-[80%] lg:pl-10 ">
+              {menus.map((menu) => (
+                <MenuCard key={menus}/>
+              ))}
+            </div>
           </section>
         </div>
       </div>
