@@ -8,8 +8,8 @@ const UserLogin = () => {
   return (
     <>
       <div className="min-h-[80vh] flex flex-col justify-center items-center text-center">
-        <div className="h-auto w-auto p-8 mt-20 flex flex-col justify-center shadow-md bg-[#e6ea5a] items-center text-center">
-          <Typography variant="h5" className="text-center text-[#3c2a0c]">
+        <div className="h-auto w-auto p-8 mt-20 flex flex-col justify-center shadow-md items-center text-center">
+          <Typography variant="h5" className="text-center text-[#3c2a0c] font-bold">
             Login
           </Typography>
           <form>
@@ -17,6 +17,7 @@ const UserLogin = () => {
               id="outlined-basic"
               label="Email"
               name="email"
+              type="email"
               variant="outlined"
               fullWidth
               margin="normal"

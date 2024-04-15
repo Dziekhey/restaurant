@@ -21,7 +21,7 @@ const Filter = () => {
       <div className="box space-y-5 lg:sticky top-28">
         <div>
           <Typography variant="h5" sx={{ paddingBottom: "1rem" }} className="text-[#674e1c]">
-            Food Catogory
+            Food Category
           </Typography>
           <FormControl className="py-10 space-y-5" component={"fieldset"}>
             <RadioGroup

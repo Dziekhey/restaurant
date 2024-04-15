@@ -9,8 +9,8 @@ const UserRegister = () => {
   return (
     <>
       <div className="min-h-[60vh] flex p-6 flex-col justify-center items-center text-center">
-        <div className="size-3/4 flex flex-col-2 justify-center shadow-md bg-[#e6ea5a] items-center text-center">
-          <div className="h-96 w-1/2 flex items-center  border-r-2 justify-center">
+        <div className="size-3/4 flex flex-col-2 justify-center items-center text-center">
+          <div className="h-96 w-1/2 flex items-center bg-[#e6ea5a] border-r-2 justify-center">
             <img
               src={logo}
               alt="Logo"
@@ -45,6 +45,7 @@ const UserRegister = () => {
                 id="outlined-basic"
                 label="Email"
                 name="email"
+                type="email"
                 variant="outlined"
                 fullWidth
                 margin="normal"

@@ -3,11 +3,13 @@ import React from "react";
 import sample from "../assets/hero.jpg";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { Link } from "react-router-dom";
 
 const RestaurantCard = () => {
   return (
     <>
       <div>
+        <Link to='/restaurants/:id'>
         <Card style={{ backgroundColor: "#917517" }} className=" w-[18rem] ">
           <div
             className={`${
@@ -42,6 +44,7 @@ const RestaurantCard = () => {
             </div>
           </div>
         </Card>
+        </Link>
       </div>
     </>
   );
