@@ -8,6 +8,8 @@ import CartPage from './pages/cart/CartPage.jsx';
 import ProfilePage from './pages/profile/ProfilePage.jsx';
 import UserRegister from './pages/authUser/UserRegister.jsx';
 import UserLogin from './pages/authUser/UserLogin.jsx';
+import AdminProfile from './pages/adminprofile/AdminProfile.jsx';
+
 
 
 const App = () => {
@@ -20,7 +22,8 @@ const App = () => {
   <Route path='/account/users/login' element={<UserLogin />} />
   <Route path='/restaurants/:id' element={<RestaurantPage />} />
   <Route path='/cart' element={<CartPage />} />
-  <Route path='/my-profile/*' element={<ProfilePage />} />
+  <Route path='/userprofile/*' element={<ProfilePage />} />
+  <Route path='/adminprofile/*' element={<AdminProfile />} />
  </Routes>
     </>
   )

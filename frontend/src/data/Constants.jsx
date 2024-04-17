@@ -4,6 +4,9 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import EventIcon from '@mui/icons-material/Event';
 import LogoutIcon from '@mui/icons-material/Logout';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import ShopTwoIcon from '@mui/icons-material/ShopTwo';
+import CategoryIcon from '@mui/icons-material/Category';
 
 
 const restaurants = [1,2,3,4,5,6,7,8]
@@ -82,4 +85,44 @@ const favorites = [1,2,3]
 
 const events = [1,2,3]
 
-export {restaurants, categories, menus, ingredients, wantedIngredients, cartOrders, navigations, orders, favorites, events};
+
+const adminMenus = [
+    {
+        title: "Dashboard",
+        icon: <DashboardIcon />,
+        path: "/"
+    },
+    {
+        title: "Orders",
+        icon: <ShoppingBagIcon />,
+        path: "/orders"
+    },
+    {
+        title: "Menu",
+        icon: <ShopTwoIcon />,
+        path: "/menu"
+    },
+    {
+        title: "Food Category",
+        icon: <Dashboard />,
+        path: "/category"
+    },
+    {
+        title: "Events",
+        icon: <Dashboard />,
+        path: "/events"
+    },
+    {
+        title: "Details",
+        icon: <Dashboard />,
+        path: "/details"
+    },
+    {
+        title: "Logout",
+        icon: <Dashboard />,
+        path: "/"
+    },
+]
+
+
+export {restaurants, categories, menus, ingredients, wantedIngredients, cartOrders, navigations, orders, favorites, events, adminMenus};
