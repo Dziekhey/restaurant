@@ -16,13 +16,14 @@ const AdminProfile = () => {
           <div>
             <AdminSideBar handleClose={handleClose} />
           </div>
-          <div className="lg:w-[80%]"></div>
+          <div className="lg:w-[80%]">
           <Routes>
             <Route path='/' element={<Dashboard />} />
             <Route path='/orders' element={<AdminOrders />} />
             <Route path='/menu' element={<AdminMenu />} />
             <Route path='/events' element={<AdminEvents />} />
           </Routes>
+          </div>
         </div>
       </div>
     </>

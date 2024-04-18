@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { adminMenus } from "../../data/Constants";
 
 
-const AdminSideBar = () => {
+const AdminSideBar = ({handleClose}) => {
   const isSmallScreen = useMediaQuery("(max-width:1080px)");
 
   const navigate = useNavigate();
@@ -22,9 +22,9 @@ const AdminSideBar = () => {
           onClose={handleClose}
           open={true}
           anchor="left"
-          sx={{ zIndex: 1 }}
+          sx={{ zIndex: 1, position: "sticky"  }}
         >
-          <div classNmae="w-[70vw] lg:w-[20vw] h-screen flex flex-col justify-center text-xl space-y-[1.65rem]">
+          <div className="lg:w-[20vw] h-screen flex flex-col justify-center text-xl space-y-[1.65rem]">
             {adminMenus.map((item, index) => (
               <>
                 <div className="px-5 flex items-center gap-5 cursor-pointer" onClick={() => handleNavigate(item)}>

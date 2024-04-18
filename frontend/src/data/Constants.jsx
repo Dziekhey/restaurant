@@ -103,23 +103,13 @@ const adminMenus = [
         path: "/menu"
     },
     {
-        title: "Food Category",
-        icon: <Dashboard />,
-        path: "/category"
-    },
-    {
         title: "Events",
-        icon: <Dashboard />,
+        icon: <EventIcon />,
         path: "/events"
     },
     {
-        title: "Details",
-        icon: <Dashboard />,
-        path: "/details"
-    },
-    {
         title: "Logout",
-        icon: <Dashboard />,
+        icon: <LogoutIcon />,
         path: "/"
     },
 ]

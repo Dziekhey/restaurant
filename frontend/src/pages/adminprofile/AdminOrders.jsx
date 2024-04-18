@@ -1,20 +1,25 @@
-import { Card, FormControl, FormControlLabel, RadioGroup, Typography } from "@mui/material";
+import {
+  Card,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
-
+import OrderTable from "../../components/OrderTable";
 
 const OrderStatus = [
-  {label:'Pending', value:'PENDING'}
-  {label:'Completed', value:'COMPLETED'}
-  {label:'All', value:'ALL'}
-]
+  { label: "All", value: "ALL" },
+  { label: "Pending", value: "PENDING" },
+  { label: "Completed", value: "COMPLETED" },
+];
 const AdminOrders = () => {
+  const [filterValue, setFilterValue] = useState();
 
-const [filterValue, setFilterValue] = useState();
-
-
-const handleFilter = (e,value) => {
-  setFilterValue(value);
-}
+  const handleFilter = (e, value) => {
+    setFilterValue(value);
+  };
   return (
     <>
       <div className="px-2">
@@ -22,19 +27,28 @@ const handleFilter = (e,value) => {
           <Typography sx={{ paddingBottom: "1rem" }} variant="5">
             Order Status
           </Typography>
+          <div>
           <FormControl>
             <RadioGroup
-            onChange={handleFilter}
+              onChange={handleFilter}
               row
               name="category"
               value={filterValue || "All"}
             >
-              {
-                OrderStatus.map((item) => <FormControlLabel />)
-              }
+              {OrderStatus.map((item) => (
+                <FormControlLabel
+                  key={item.label}
+                  value={item.value}
+                  control={<Radio />}
+                  label={item.label}
+                  sx={{ color: "grey" }}
+                />
+              ))}
             </RadioGroup>
           </FormControl>
+          </div>
         </Card>
+        <OrderTable />
       </div>
     </>
   );

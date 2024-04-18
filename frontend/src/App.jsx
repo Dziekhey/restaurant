@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import HomePage from '../src/pages/home/HomePage.jsx'
 import RestaurantPage from './pages/restaurant/RestaurantPage';
 import CartPage from './pages/cart/CartPage.jsx';
-import ProfilePage from './pages/profile/ProfilePage.jsx';
+import ProfilePage from './pages/userprofile/ProfilePage.jsx';
 import UserRegister from './pages/authUser/UserRegister.jsx';
 import UserLogin from './pages/authUser/UserLogin.jsx';
 import AdminProfile from './pages/adminprofile/AdminProfile.jsx';
@@ -15,7 +15,7 @@ import AdminProfile from './pages/adminprofile/AdminProfile.jsx';
 const App = () => {
   return (
     <>
-   <Navbar />
+   {/* <Navbar /> */}
  <Routes>
   <Route path='/' element={<HomePage />} />
   <Route path='/account/users/register' element={<UserRegister />} />

@@ -8,7 +8,7 @@ const ProfileNavigation = ({ open, handleClose }) => {
   const navigate = useNavigate();
 
   const handleNavigate = (navigation) => {
-    navigate(`/my-profile/${navigation.title.toLowerCase()}`);
+    navigate(`/userprofile/${navigation.title.toLowerCase()}`);
   };
 
   return (
