@@ -61,13 +61,7 @@ console.log('value')
               ))}
             </div>
             <div className="pt-5">
-              <Button sx={{
-              color: "#3c2a0c",
-              backgroundColor: "#b6a018",
-              "&:hover": {
-                backgroundColor: "#917617",
-              }
-             }} type="submit" variant="contained"  disabled={false}>{true?'Add to Cart':'Out of Stock'}</Button>
+              <Button type="submit" variant="contained">Add to Cart</Button>
             </div>
           </form>
         </AccordionDetails>

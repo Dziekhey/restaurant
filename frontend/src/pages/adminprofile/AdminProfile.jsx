@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard";
 import AdminOrders from "./AdminOrders";
 import AdminMenu from "./AdminMenu";
 import AdminEvents from "./AdminEvents";
+import MenuForm from "../../components/MenuForm";
 
 const AdminProfile = () => {
   const handleClose = () => {};
@@ -22,6 +23,8 @@ const AdminProfile = () => {
             <Route path='/orders' element={<AdminOrders />} />
             <Route path='/menu' element={<AdminMenu />} />
             <Route path='/events' element={<AdminEvents />} />
+            <Route path='/add-menu' element={<MenuForm />} />
+            {/* <Route path='/change-status' element={<MenuForm />} /> */}
           </Routes>
           </div>
         </div>

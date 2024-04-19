@@ -10,7 +10,7 @@ const RestaurantCard = () => {
     <>
       <div>
         <Link to='/restaurants/:id'>
-        <Card style={{ backgroundColor: "#917517" }} className=" w-[18rem] ">
+        <Card style={{ }} className=" w-[18rem] ">
           <div
             className={`${
               true ? "cursor-pointer" : "cursor-not-allowed"
@@ -30,14 +30,16 @@ const RestaurantCard = () => {
           <div className="p-4 textPart lg:flex w-full justify-between">
             <div className="space-y-1">
               <div className="flex  justify-between">
-                <p className="font-semibold pt-2 text-white text-lg">
+                <p className="font-semibold pt-2 text-[#3c2a0c] text-lg">
                   Ghanaian Fast Food
                 </p>
-                <IconButton className="text-white">
-                  {true ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                <IconButton className="">
+                  {true ? <FavoriteIcon sx={{
+              color: "#3c2a0c"
+             }} /> : <FavoriteBorderIcon />}
                 </IconButton>
               </div>
-              <p className="text-white text-sm">
+              <p className="text-[#3c2a0c] text-sm">
                 Craving it all? Dive into our global fla...
               </p>
               <div></div>

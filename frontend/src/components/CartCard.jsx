@@ -17,10 +17,10 @@ const CartCard = () => {
               className="w-[5rem] h-[5rem] object-cover"
             />
           </div>
-          <div className="flex items-center justify-between lg:w-[70%]">
+          <div className="flex items-center text-[#3c2a0c] justify-between lg:w-[70%]">
             <div className="space-y-1 lg:space-y-3 w-full">
               <p>Kenkey</p>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between ml-8 items-center">
                 <div className="flex items-center space-x-1">
                   <IconButton>
                     <RemoveCircleOutlineIcon />
@@ -34,7 +34,7 @@ const CartCard = () => {
                 </div>
               </div>
             </div>
-            <p>GH₵10</p>
+            <p className="pt-7">GH₵10</p>
           </div>
         </div>
         <div className="pt-3 space-x-2">
@@ -46,13 +46,11 @@ const CartCard = () => {
           <Button
             type="submit"
             variant="contained"
-            sx={{
-              color: "#3c2a0c",
-              backgroundColor: "#b6a018",
-              "&:hover": {
-                backgroundColor: "#917617",
-              },
-            }}
+            sx={{ color: "#3c2a0c",
+            backgroundColor: "#d99e06",
+            "&:hover": {
+              backgroundColor: "#917617",
+            }}}
           >
             Order
           </Button>

@@ -12,22 +12,57 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { Modal, Typography } from "@mui/material";
 import React from "react";
+import AddIcon from "@mui/icons-material/Add";
 import CreateIcon from "@mui/icons-material/Create";
 import Delete from "@mui/icons-material/Delete";
+import { Link } from "react-router-dom";
+import IngredientForm from "./IngredientForm";
 
 const orders = [1, 2, 3, 4, 5];
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 const MenuTable = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <Box>
         <Card className="mt-1">
           <CardHeader
             action={
-              <IconButton aria-label="settings">
-                <CreateIcon />
-              </IconButton>
+              <>
+                <div>
+                  <Link to="/adminprofile/add-menu">
+                    <IconButton aria-label="settings">
+                      <AddIcon />
+                      <span>
+                        <h6 className="px-1">Add Menu</h6>
+                      </span>
+                    </IconButton>
+                  </Link>
+                  <IconButton aria-label="settings">
+                    <CreateIcon />
+                    <span>
+                      <h6 className="px-1">Edit Menu</h6>
+                    </span>
+                  </IconButton>
+                </div>
+              </>
             }
             title={"All Menu Items"}
             sx={{ pt: 2, alignItems: "center" }}
@@ -43,6 +78,7 @@ const MenuTable = () => {
                   <TableCell align="right">Price</TableCell>
                   <TableCell align="right">Availabilty</TableCell>
                   <TableCell align="right">Delete</TableCell>
+                  <TableCell align="right">Add ingredients</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -59,8 +95,16 @@ const MenuTable = () => {
                     <TableCell align="right">{"fish"}</TableCell>
                     <TableCell align="right">{"2"}</TableCell>
                     <TableCell align="right">{"GH₵20"}</TableCell>
-                    <TableCell align="right"><IconButton><Delete/></IconButton></TableCell>
-                   
+                    <TableCell align="right">
+                      <IconButton>
+                        <Delete />
+                      </IconButton>
+                    </TableCell>
+                    <TableCell align="right" className="flex">
+                      <IconButton onClick={handleOpen}>
+                        <AddIcon />
+                      </IconButton>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -68,6 +112,16 @@ const MenuTable = () => {
           </TableContainer>
         </Card>
       </Box>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <IngredientForm />
+        </Box>
+      </Modal>
     </>
   );
 };

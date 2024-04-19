@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Navbar from "../../components/Navbar";
 
-const UserRegister = () => {
+const AdminRegister = () => {
   const navigate = useNavigate();
 
   return (
@@ -94,7 +94,7 @@ const UserRegister = () => {
                 variant="outlined"
                 color="error"
                 sx={{ pt: 1, color: "#3c2a0c" }}
-                onClick={() => navigate("/account/users/login")}
+                onClick={() => navigate("/account/admin/login")}
               >
                 Login
               </Button>
@@ -106,4 +106,4 @@ const UserRegister = () => {
   );
 };
 
-export default UserRegister;
+export default AdminRegister;

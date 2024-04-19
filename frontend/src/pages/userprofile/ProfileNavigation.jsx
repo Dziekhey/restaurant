@@ -2,6 +2,7 @@ import React from "react";
 import { Divider, Drawer, useMediaQuery } from "@mui/material";
 import { navigations } from "../../data/Constants";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 const ProfileNavigation = ({ open, handleClose }) => {
   const isSmallScreen = useMediaQuery("(max-width:900px)");
@@ -21,7 +22,7 @@ const ProfileNavigation = ({ open, handleClose }) => {
           anchor="left"
           sx={{ zIndex: -1, position: "sticky" }}
         >
-          <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col bg-[#e7ec84] justify-center text-xl gap-8 pt-16">
+          <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col bg-amber-200 justify-center text-xl gap-8 pt-16">
             {navigations.map((navigation, index) => (
               <>
                 <div
@@ -37,6 +38,7 @@ const ProfileNavigation = ({ open, handleClose }) => {
           </div>
         </Drawer>
       </div>
+      
     </>
   );
 };

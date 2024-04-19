@@ -6,11 +6,14 @@ import { Divider } from "@mui/material";
 import Filter from "../../components/Filter.jsx";
 import { menus } from "../../data/Constants.jsx";
 import MenuCard from "../../components/MenuCard.jsx";
+import Navbar from "../../components/Navbar.jsx";
+import Footer from "../../components/Footer.jsx";
 
 
 const RestaurantPage = () => {
   return (
     <>
+    <Navbar/>
       <div>
         <section>
           <img src={sample} className="w-full h-[60vh] object-cover" />
@@ -52,6 +55,7 @@ const RestaurantPage = () => {
           </section>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

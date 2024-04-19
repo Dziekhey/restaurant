@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="px-5 h-16 sticky top-0 z-50 py-[.8rem] lg:px-20 flex bg-[#d3c81f] justify-between">
+      <div className="px-5 h-16 sticky top-0 z-50 py-[.8rem] lg:px-20 flex bg-amber-400 justify-between">
         <Link to="/">
           <div className="1g:mr-10 cursor-pointer flex items-center space-x-4">
             <li className="logo text-white font-semibold text-2xl">BiteHub</li>
@@ -59,7 +59,7 @@ const Navbar = () => {
               <h1 className="pt-2">Cart</h1>
             </div>
           </Link>
-          <Link to=''>
+          <Link to='/account/admin/register'>
           <div className="flex ml-6 cursor-pointer">
             <IconButton>
               <HowToRegIcon />

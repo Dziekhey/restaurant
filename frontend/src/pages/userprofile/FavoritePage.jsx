@@ -1,6 +1,7 @@
 import React from 'react';
 import { favorites } from '../../data/Constants';
 import RestaurantCard from '../../components/RestaurantCard';
+import Footer from '../../components/Footer';
 
 
 
@@ -15,6 +16,7 @@ const FavoritePage = () => {
 }
       </div>
     </div>
+    <Footer />
     </>
   )
 }

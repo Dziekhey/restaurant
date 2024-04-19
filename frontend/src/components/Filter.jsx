@@ -20,7 +20,7 @@ const Filter = () => {
     <>
       <div className="box space-y-5 lg:sticky top-28">
         <div>
-          <Typography variant="h5" sx={{ paddingBottom: "1rem" }} className="text-[#674e1c]">
+          <Typography variant="h5" sx={{ paddingBottom: "1rem" }} className="text-[#3c2a0c]">
             Food Category
           </Typography>
           <FormControl className="py-10 space-y-5" component={"fieldset"}>
@@ -40,7 +40,7 @@ const Filter = () => {
                     },
                   }}  />}
                   label={category}
-                  className="text-[#674e1c] my-4"
+                  className="text-[#3c2a0c] my-4"
                 />
                 {index!== categories.length-1 && <Divider />}
               </>))}

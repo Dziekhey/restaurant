@@ -2,10 +2,13 @@ import React from "react";
 import Hero from "../../components/hero/Hero.jsx";
 import { restaurants } from "../../data/Constants.jsx";
 import RestaurantCard from "../../components/RestaurantCard.jsx";
+import Navbar from "../../components/Navbar.jsx";
+import Footer from "../../components/Footer.jsx";
 
 const HomePage = () => {
   return (
     <>
+    <Navbar />
       <div>
         <div>
           <Hero />
@@ -21,6 +24,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

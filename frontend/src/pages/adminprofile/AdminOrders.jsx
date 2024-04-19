@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import OrderTable from "../../components/OrderTable";
+import { lime } from "@mui/material/colors";
 
 const OrderStatus = [
   { label: "All", value: "ALL" },
@@ -24,7 +25,7 @@ const AdminOrders = () => {
     <>
       <div className="px-2">
         <Card className="p-5">
-          <Typography sx={{ paddingBottom: "1rem" }} variant="5">
+          <Typography sx={{ paddingBottom: "1rem", color: '#3c2a0c' }} variant="5">
             Order Status
           </Typography>
           <div>
@@ -39,9 +40,14 @@ const AdminOrders = () => {
                 <FormControlLabel
                   key={item.label}
                   value={item.value}
-                  control={<Radio />}
+                  control={<Radio sx={{
+                    color: lime[900],
+                    '&.Mui-checked': {
+                      color: lime[900],
+                    },
+                  }} />}
                   label={item.label}
-                  sx={{ color: "grey" }}
+                  sx={{ color: "#3c2a0c" }}
                 />
               ))}
             </RadioGroup>

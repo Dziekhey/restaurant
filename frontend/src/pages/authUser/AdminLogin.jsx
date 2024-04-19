@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 
-const UserLogin = () => {
+const AdminLogin = () => {
   const navigate = useNavigate();
 
   return (
@@ -67,7 +67,7 @@ const UserLogin = () => {
               variant="outlined"
               color="error"
               sx={{ pt: 1, color: "#3c2a0c" }}
-              onClick={() => navigate("/account/users/register")}
+              onClick={() => navigate("/account/admin/register")}
             >
               Register
             </Button>
@@ -78,4 +78,4 @@ const UserLogin = () => {
   );
 };
 
-export default UserLogin;
+export default AdminLogin;

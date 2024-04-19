@@ -14,13 +14,7 @@ const OrderCard = () => {
           </div>
         </div>
         <di>
-            <Button className="cursor-not-allowed"  sx={{
-              color: "#3c2a0c",
-              backgroundColor: "#b6a018",
-              "&:hover": {
-                backgroundColor: "#917617",
-              },
-            }}>Completed</Button>
+            <Button className="cursor-not-allowed" sx={{}} >Completed</Button>
         </di>
       </Card>
     </>

@@ -1,10 +1,31 @@
-import { Box, Card, CardHeader, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Box, Card, CardHeader, IconButton, Modal, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import React from "react";
+import CreateIcon from "@mui/icons-material/Create";
+import StatusForm from "./StatusForm";
 
 
 const orders = [1,2,3,4,5]
 
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
+
 const OrderTable = () => {
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <Box>
@@ -22,6 +43,7 @@ const OrderTable = () => {
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">Customer</TableCell>
             <TableCell align="right">Status</TableCell>
+            <TableCell align="right">Edit</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -40,6 +62,9 @@ const OrderTable = () => {
               <TableCell align="right">{'GH₵20'}</TableCell>
               <TableCell align="right">{'Kenneth Antwi'}</TableCell>
               <TableCell align="right">{'Pending'}</TableCell>
+              <TableCell align="right"><IconButton onClick={handleOpen}>
+                        <CreateIcon />
+                      </IconButton></TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -47,6 +72,16 @@ const OrderTable = () => {
     </TableContainer>
         </Card>
       </Box>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <StatusForm />
+        </Box>
+      </Modal>
     </>
   );
 };
