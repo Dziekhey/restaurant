@@ -8,7 +8,7 @@ const Hero = () => {
           <div className="w-[50vw] z-10 text-center">
             <p className="text-2xl text-white lg:text-6xl font-bold z-10 py-5">BiteHub</p>
             <p className="z-10 text-white text-xl lg:4xl">
-              Taste the Convenience: Food, Fast and Delivered.
+            Where Flavor Meets Convenience. Order In, Pick Up in Minutes.
             </p>
           </div>
           <div className="cover absolute top-0 left-0 right-0">

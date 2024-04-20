@@ -34,7 +34,7 @@ const StatusForm = () => {
             backgroundColor: "#d99e06",
             "&:hover": {
               backgroundColor: "#917617",
-            }}} variant="contained" type="submit" className="mt-3">Change</Button>
+            }}} variant="contained" type="submit" className="mt-3">Update</Button>
             </div>
           </form>
         </div>

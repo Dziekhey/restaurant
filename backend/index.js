@@ -2,7 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import usersRoute from './routes/users.routes.js';
-import loginRoute from './routes/logins.routes.js';
+import ownerRoute from './routes/owners.routes.js'
+import restaurantRoute from './routes/restaurants.routes.js'
+import menuRoute from './routes/menu.routes.js';
+import orderRoute from './routes/orders.routes.js';
+import cartRoute from './routes/cart.routes.js'
 
 // Create express app
 const app = express();
@@ -12,11 +16,18 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
+app.use(express.static('uploads'))
 
 
 // Load routes
-app.use(usersRoute);
-app.use(loginRoute);
+app.use('/users', usersRoute);
+app.use('/owners', ownerRoute);
+app.use('/restaurants', restaurantRoute);
+app.use('/menu', menuRoute);
+app.use('/orders', orderRoute);
+app.use('/carts', cartRoute);
+
+
 
 
 

@@ -2,14 +2,17 @@ import mongoose from 'mongoose';
 import { Schema, model} from 'mongoose';
 
 const ownerSchema = new Schema({
-    ownerName: {type: String, required: true},
-    ownerEmail: {type: String, required: true},
-    ownerTelephone: {type: String, required: true},
-    ownerPassword: {type: String, required: true},
-    restaurantId: {
+    name: {type: String, required: true},
+    telephone: {type: String, required: true},
+    email: {type: String, required: true},
+    password: {type: String, required: true},
+    restaurant: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Restaurant'
-    },
+    }
 });
 
 export const OwnerModel = model('Owner', ownerSchema, 'owners');
+
+
+

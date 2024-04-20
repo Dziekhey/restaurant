@@ -17,26 +17,16 @@ const Dashboard = () => {
           <h1 className="text-2xl lg:text-5xl text-center font-bold px-5 pt-4">
             Restaurant's Name
           </h1>
-          <div>
-            <Button
-              color={true ? "primary" : "error"}
-              className="py-[1rem] px-[2rem]"
-              onClick={handleStatus}
-              size="large"
-              variant="contained"
-            >
-              {true ? "close" : "open"}
-            </Button>
-          </div>
         </div>
         <Grid container spacing={2}>
           <Grid item xs={12}>
           <div className="flex flex-col items-center justify-center">
           <AccountCircleIcon sx={{ fontSize: "7rem" }} />
+          <div>
           <Button
             onClick={handleLogout}
             variant="contained"
-            sx={{ margin: "1rem 0rem", color: "#3c2a0c",
+            sx={{ margin: "1rem 2rem", color: "#3c2a0c",
             backgroundColor: "#d99e06",
             "&:hover": {
               backgroundColor: "#917617",
@@ -44,6 +34,15 @@ const Dashboard = () => {
           >
             Logout
           </Button>
+          <Button
+            onClick={handleStatus}
+            variant="contained"
+            color={true ? "primary" : "error"}
+            sx={{ margin: "1rem 2rem"}}
+          >
+            {true ? "close" : "open"}
+          </Button>
+          </div>
         </div>
           </Grid>
           <Grid  item xs={12} lg={6}>

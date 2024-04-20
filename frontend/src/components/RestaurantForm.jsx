@@ -2,6 +2,26 @@ import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
 
 const RestaurantForm = () => {
+
+const addRestaurant = async (event) => {
+ try {
+   event.preventDefault();
+ 
+   const formData = new FormData(event.target);
+ 
+   const response = await fetch(`${process.env.VITE_API_URL}/restaurants`, {
+     method: "POST",
+     body: formData, 
+   });
+ 
+   if (response.status !== 201) {
+     setMessage('Failed to add restaurant!')
+   };
+ } catch (error) {
+  console.log(error);
+ }
+}
+
   return (
     <>
       <div className="py-10 lg:flex flex-col items-center justify-center min-h-screen">
@@ -9,7 +29,7 @@ const RestaurantForm = () => {
           <h1 className="font-bold text-2xl mb-2 text-center py-2">
             Add New Restaurant
           </h1>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={addRestaurant}>
             <Grid container spacing={2}>
             <Grid item xs={12}>
             <TextField

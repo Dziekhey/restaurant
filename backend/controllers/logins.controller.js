@@ -1,6 +1,6 @@
 import { UserModel } from "../models/user.js";
 import {OwnerModel} from "../models/owner.js";
-import { LoginModel } from "../models/login.js";
+
 import { comparePassword } from "../helpers/auth.js";
 
 

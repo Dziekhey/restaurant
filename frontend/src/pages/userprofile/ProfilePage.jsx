@@ -28,7 +28,6 @@ const ProfilePage = () => {
             <Route path="/notifications" element={<NotificationPage />} />
             <Route path="/logout" element={<UserProfile />} />
           </Routes>
-      <Footer />
         </div>
       </div>
     </>

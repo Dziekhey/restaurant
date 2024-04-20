@@ -12,6 +12,7 @@ import {
   TextField,
 } from "@mui/material";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const countries = [
   { value: "GH", label: "Seafood" },
@@ -32,7 +33,7 @@ const MenuForm = () => {
     <>
       <div className="py-10 lg:flex flex-col items-center justify-center min-h-screen">
         <div className="lg:max-w-4xl">
-          <h1 className="font-bold text-2xl mb-2 text-center py-2">
+          <h1 className="font-bold text-2xl mb-10 text-center py-2">
             Add Menu Item
           </h1>
           <form className="space-y-4">
@@ -112,9 +113,17 @@ const MenuForm = () => {
                 </TextField>
                 </Grid>
             </Grid>
+            <div className="flex justify-between">
+
             <Button variant="contained" color="primary" type="submit">
               Add Menu
             </Button>
+            <Link to='/adminprofile/menu'>
+            <Button variant="contained" color="primary" type="submit">
+              Close
+            </Button>
+            </Link>
+            </div>
           </form>
         </div>
       </div>

@@ -55,12 +55,6 @@ const MenuTable = () => {
                       </span>
                     </IconButton>
                   </Link>
-                  <IconButton aria-label="settings">
-                    <CreateIcon />
-                    <span>
-                      <h6 className="px-1">Edit Menu</h6>
-                    </span>
-                  </IconButton>
                 </div>
               </>
             }
@@ -76,8 +70,7 @@ const MenuTable = () => {
                   <TableCell align="right">Food Name</TableCell>
                   <TableCell align="right">Ingredients</TableCell>
                   <TableCell align="right">Price</TableCell>
-                  <TableCell align="right">Availabilty</TableCell>
-                  <TableCell align="right">Delete</TableCell>
+                  <TableCell align="right">Actions</TableCell>
                   <TableCell align="right">Add ingredients</TableCell>
                 </TableRow>
               </TableHead>
@@ -94,10 +87,12 @@ const MenuTable = () => {
                     <TableCell align="right">{"kenkey"}</TableCell>
                     <TableCell align="right">{"fish"}</TableCell>
                     <TableCell align="right">{"2"}</TableCell>
-                    <TableCell align="right">{"GH₵20"}</TableCell>
                     <TableCell align="right">
                       <IconButton>
                         <Delete />
+                      </IconButton>
+                      <IconButton>
+                        <CreateIcon />
                       </IconButton>
                     </TableCell>
                     <TableCell align="right" className="flex">

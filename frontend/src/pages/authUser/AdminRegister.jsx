@@ -3,13 +3,50 @@ import { Typography, TextField, Button, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Navbar from "../../components/Navbar";
+import toast, { Toaster } from "react-hot-toast";
 
 const AdminRegister = () => {
   const navigate = useNavigate();
 
+  const registerOwner = async (event) => {
+    // Prevent default form submit behavior
+    event.preventDefault();
+    // Get form data
+    const formData = new FormData(event.target);
+    try {
+      // Post form data to the backend
+      const response = await fetch(
+        'http://localhost:4000/owners/register',
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name: formData.get("name"),
+            telephone: formData.get("telephone"),
+            email: formData.get("email"),
+            password: formData.get("password")
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response)
+      if (response.status !== 201) {
+        const data = await response.json();
+        toast.error(data.error);
+      } else {
+       toast.success("Sign up was successful");
+       navigate("/account/admin/login")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
     <Navbar/>
+    <Toaster position="top-center" reverseOrder={false} />
       <div className="min-h-[60vh] flex p-6 flex-col justify-center items-center text-center">
         <div className="size-3/4 flex flex-col-2 justify-center items-center text-center">
           <div className="h-96 w-1/2 flex items-center bg-[#e6ea5a] border-r-2 justify-center">
@@ -24,7 +61,7 @@ const AdminRegister = () => {
             <Typography variant="h5" sx={{fontWeight: 'bold'}} className="text-center text-[#3c2a0c]">
               Register
             </Typography>
-            <form className="">
+            <form className="" onSubmit={registerOwner}>
               <TextField
                 id="outlined-basic"
                 label="Full Name"
@@ -76,7 +113,6 @@ const AdminRegister = () => {
                 }, fontWeight: 'bold',
                 }}
                 variant="contained"
-                //  onClick={handleSubmit}
               >
                 Register
               </Button>

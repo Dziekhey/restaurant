@@ -3,13 +3,51 @@ import { Typography, TextField, Button, Divider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Navbar from "../../components/Navbar";
+import toast, { Toaster } from "react-hot-toast";
 
 const UserRegister = () => {
   const navigate = useNavigate();
 
+  const registerUser = async (event) => {
+    // Prevent default form submit behavior
+    event.preventDefault();
+    // Get form data
+    const formData = new FormData(event.target);
+    try {
+      // Post form data to the backend
+      const response = await fetch(
+        'http://localhost:4000/users/register',
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name: formData.get("name"),
+            telephone: formData.get("telephone"),
+            email: formData.get("email"),
+            password: formData.get("password")
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response)
+      if (response.status !== 201) {
+        const data = await response.json();
+        toast.error(data.error);
+      } else {
+       toast.success("Sign up success");
+       navigate("/")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
   return (
     <>
     <Navbar/>
+    <Toaster position="top-center" reverseOrder={false} />
       <div className="min-h-[60vh] flex p-6 flex-col justify-center items-center text-center">
         <div className="size-3/4 flex flex-col-2 justify-center items-center text-center">
           <div className="h-96 w-1/2 flex items-center bg-[#e6ea5a] border-r-2 justify-center">
@@ -24,7 +62,7 @@ const UserRegister = () => {
             <Typography variant="h5" sx={{fontWeight: 'bold'}} className="text-center text-[#3c2a0c]">
               Register
             </Typography>
-            <form className="">
+            <form onSubmit={registerUser}>
               <TextField
                 id="outlined-basic"
                 label="Full Name"
@@ -76,7 +114,7 @@ const UserRegister = () => {
                 }, fontWeight: 'bold',
                 }}
                 variant="contained"
-                //  onClick={handleSubmit}
+                //  onClick={registerUser}
               >
                 Register
               </Button>
@@ -94,7 +132,7 @@ const UserRegister = () => {
                 variant="outlined"
                 color="error"
                 sx={{ pt: 1, color: "#3c2a0c" }}
-                onClick={() => navigate("/account/users/login")}
+                onClick={() => navigate("/")}
               >
                 Login
               </Button>

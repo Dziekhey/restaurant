@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import cartImg from "../assets/hero.jpg";
 import { Chip, IconButton, Button } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
@@ -6,6 +6,25 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { wantedIngredients } from "../data/Constants";
 
 const CartCard = () => {
+  const [number, setNumber] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    // Calculate total price based on quantity
+    const updatedTotalPrice = number * 10; // Assuming price per item is GH₵10
+    setTotalPrice(updatedTotalPrice);
+  }, [number]);
+
+  const increaseItem = () => {
+    setNumber((prev) => prev + 1);
+  };
+
+  const decreaseItem = () => {
+    if (number > 0) {
+      setNumber((prev) => prev - 1);
+    }
+  };
+
   return (
     <>
       <div className="px-5">
@@ -13,7 +32,7 @@ const CartCard = () => {
           <div>
             <img
               src={cartImg}
-              alt="Food Image"
+              alt="Kenkey"
               className="w-[5rem] h-[5rem] object-cover"
             />
           </div>
@@ -22,35 +41,38 @@ const CartCard = () => {
               <p>Kenkey</p>
               <div className="flex justify-between ml-8 items-center">
                 <div className="flex items-center space-x-1">
-                  <IconButton>
+                  <IconButton onClick={decreaseItem}>
                     <RemoveCircleOutlineIcon />
                   </IconButton>
                   <div className="w-5 h-5 text-xs flex items-center justify-center">
-                    {5}
+                    {number}
                   </div>
-                  <IconButton>
+                  <IconButton onClick={increaseItem}>
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </div>
               </div>
             </div>
-            <p className="pt-7">GH₵10</p>
+            <p className="pt-7">GH₵{totalPrice}</p> {/* Display total price */}
           </div>
         </div>
         <div className="pt-3 space-x-2">
-          {wantedIngredients.map((item) => (
-            <Chip label={item} />
+          {wantedIngredients.map((item, index) => (
+            <Chip key={index} label={item} />
           ))}
         </div>
         <div className="pt-5 lg:flex lg:justify-end">
           <Button
             type="submit"
             variant="contained"
-            sx={{ color: "#3c2a0c",
-            backgroundColor: "#d99e06",
-            "&:hover": {
-              backgroundColor: "#917617",
-            }}}
+            sx={{
+              color: "#3c2a0c",
+              backgroundColor: "#d99e06",
+              "&:hover": {
+                backgroundColor: "#917617",
+              },
+              fontWeight: 'bold'
+            }}
           >
             Order
           </Button>
