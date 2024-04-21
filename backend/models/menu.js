@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Schema, model } from "mongoose";
 
 const menuSchema = new Schema({
-  restaurantId: {type: mongoose.Schema.Types.ObjectId},
+  // restaurantId: {type: mongoose.Schema.Types.ObjectId},
   foodName: { type: String, required: true },
   foodImage: { type: String, required: true },
   foodDescription: { type: String, required: true },
@@ -14,4 +14,4 @@ const menuSchema = new Schema({
   }],
 });
 
-export const MenuModel = model("Menu", menuSchema, "menus");
+export const MenuModel = model("Menu", menuSchema);
