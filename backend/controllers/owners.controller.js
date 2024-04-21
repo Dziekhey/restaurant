@@ -1,6 +1,7 @@
 import { ObjectId } from "mongodb";
 import { comparePassword, hashPassword } from "../helpers/auth.js";
 import { OwnerModel } from "../models/owner.js";
+import jwt from "jsonwebtoken";
 
 //Register Endpoints for owners
 export const addOwner = async (req, res, next) => {
@@ -65,19 +66,26 @@ export const addOwner = async (req, res, next) => {
 export const loginOwner = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    //Check if user exists
-    const user = await OwnerModel.findOne({ email });
-    if (!user) {
+    //Check if owner exists
+    const owner = await OwnerModel.findOne({ email });
+    if (!owner) {
       return res.status(404).json({
-        error: "No user found",
+        error: "No owner found",
       });
     }
 
     //Check if password match
-
-    const match = await comparePassword(password, user.password);
+    const match = await comparePassword(password, owner.password);
     if (match) {
-      return res.status(200).json("Password match");
+      jwt.sign(
+        { email: owner.email, id: owner._id, name: owner.name },
+        process.env.JWT_SECRET,
+        {},
+        (err, token) => {
+          if (err) throw err;
+          return res.status(200).json({ owner, token });
+        }
+      );
     } else {
       return res.status(404).json({
         error: "Password don't match",
@@ -89,24 +97,21 @@ export const loginOwner = async (req, res, next) => {
 };
 
 //Endpoint for getting profile
-export const getProfile = (req, res, next) => {
-  const { token } = req;
-};
-
-// Endpoint for logging out
-export const logOut = async (req, res, next) => {};
+// export const getProfile = (req, res, next) => {
+//   const { token } = req;
+// };
 
 //Endpoint for getting an owner
 export const getOwner = async (req, res, next) => {
   try {
-    // Get a user by id
+    // Get an owner by id
     const findByIdResult = await OwnerModel.findById(req.params.id).populate(
       "restaurantId"
     );
-    // Return 404 if no user is found
+    // Return 404 if no owner is found
     if (findByIdResult === null) {
       res.status(404).json({
-        message: `User with ID: ${req.params.id} not found`,
+        message: `Owner with ID: ${req.params.id} not found`,
       });
     } else {
       // Return response
@@ -123,7 +128,7 @@ export const updateOwner = async (req, res, next) => {
     // Get a user by id
     const findByIdResult = { _id: new ObjectId(req.params.id) };
     const update = {
-      $set: { restaurant: req.body.restaurant },
+      $set: { ...req.body },
     };
 
     const newUpdate = await OwnerModel.updateOne(findByIdResult, update);
@@ -134,10 +139,10 @@ export const updateOwner = async (req, res, next) => {
   }
 };
 
-//Endpoint for deleting a user
+//Endpoint for deleting an owner
 export const deleteOwner = async (req, res, next) => {
   try {
-    // Get a user by id
+    // Get an owner by id
     const findByIdResult = await OwnerModel.findById(req.params.id);
 
     const user = await findByIdResult.deleteOne({});

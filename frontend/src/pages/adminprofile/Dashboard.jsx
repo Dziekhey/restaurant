@@ -1,11 +1,16 @@
+import React from "react";
 import { Button, Card, CardContent, CardHeader, Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import React from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../services/useAuth";
 
 const Dashboard = () => {
 
+  const auth = useAuth();
+  if (!auth.token) return <Navigate to="/account/admin/login" />;
+
   const handleLogout = () => {
-    
+    auth.logOut();
   };
 
   const handleStatus = () => {};
