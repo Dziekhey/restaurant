@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import cookieParser from "cookie-parser";
 import usersRoute from './routes/users.routes.js';
 import ownerRoute from './routes/owners.routes.js'
 import restaurantRoute from './routes/restaurants.routes.js'
@@ -16,7 +17,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
-app.use(express.static('uploads'))
+app.use(express.static('uploads'));
+app.use(cookieParser());
 
 
 // Load routes

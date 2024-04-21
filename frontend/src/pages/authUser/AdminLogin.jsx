@@ -3,40 +3,47 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import toast, { Toaster } from "react-hot-toast";
+import { useAuth } from "../../services/useAuth";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
 
+   const auth = useAuth();
   const loginOwner = async (event) => {
     // Prevent default form submit behavior
     event.preventDefault();
     // Get form data
     const formData = new FormData(event.target);
-    try {
-      // Post form data to the backend
-      const response = await fetch(
-        'http://localhost:4000/owners/login',
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email: formData.get("email"),
-            password: formData.get("password")
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (response.status !== 200) {
-        const data = await response.json();
-        toast.error(data.error);
-      } else {
-       toast.success("Login was successful");
-       navigate("/account/admin/restaurant-form")
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   // Post form data to the backend
+    //   const response = await fetch(
+    //     'http://localhost:4000/owners/login',
+    //     {
+    //       method: "POST",
+    //       body: JSON.stringify({
+    //         email: formData.get("email"),
+    //         password: formData.get("password")
+    //       }),
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
+    //   if (response.status !== 200) {
+    //     const data = await response.json();
+    //     toast.error(data.error);
+    //   } else {
+    //    toast.success("Login was successful");
+    //    navigate("/account/admin/restaurant-form")
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+     auth.loginOwnerAction({
+       email: formData.get("email"),
+       password: formData.get("password"),
+     });
   };
 
   return (

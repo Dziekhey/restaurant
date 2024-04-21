@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
-import { Avatar, Badge, IconButton } from "@mui/material";
-import { green } from "@mui/material/colors";
+import { Badge, IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
@@ -23,14 +22,14 @@ const Navbar = () => {
             <li className="logo text-white font-semibold text-2xl">BiteHub</li>
           </div>
         </Link>
-        <div className="flex items-center space-x-2 1g:space-x-10">
+        <div className=" flex items-center space-x-2 1g:space-x-10">
           <div className="flex mx-6 cursor-pointer ">
             <IconButton>
               <SearchIcon sx={{ fontSize: "1.5rem" }} />
             </IconButton>
             <h1 className="pt-2">Search</h1>
           </div>
-          <Link to="/homepage">
+          <Link to="/">
             <div className="flex mx-6 cursor-pointer">
               <IconButton>
                 <HomeIcon sx={{ fontSize: "1.5rem" }} />
@@ -61,13 +60,13 @@ const Navbar = () => {
           </Link>
           <span
   onClick={() => setShowMenu(true)}
-  className="text-xl lg:hidden w-10 h-10 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
+  className="text-xl w-10 h-10 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
 >
-  <MenuIcon />
+  <MenuIcon sx={{color:'#3c2a0c'}} />
 </span>
 
         {showMenu && (
-          <div className="w-[80%] h-screen overflow-scroll absolute top-0 left-0 bg-gray-900 p-4 scrollbar-hide">
+          <div className="w-[80%] h-screen overflow-scroll absolute top-0 left-0 bg-amber-200 p-4 scrollbar-hide">
             <div className="flex flex-col gap-8 py-2 relative">
               <div>
                 <img className="w-32" src={logo} alt="logo" />

@@ -1,53 +1,62 @@
 import { Typography, TextField, Button } from "@mui/material";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import toast, { Toaster } from "react-hot-toast";
+import { useAuth } from "../../services/useAuth";
+import { Toaster } from "react-hot-toast";
 
 const UserLogin = () => {
   const navigate = useNavigate();
 
-
+  const auth = useAuth();
   const loginUser = async (event) => {
     // Prevent default form submit behavior
     event.preventDefault();
     // Get form data
     const formData = new FormData(event.target);
-    try {
-      // Post form data to the backend
-      const response = await fetch(
-        'http://localhost:4000/users/login',
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email: formData.get("email"),
-            password: formData.get("password")
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (response.status !== 200) {
-        const data = await response.json();
-        toast.error(data.error);
-      } else {
-       toast.success("Login was successful");
-       navigate("/homepage")
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    // Post form data to the backend
+    // const response = await fetch(
+    //   'http://localhost:4000/users/login',
+    //   {
+    //     method: "POST",
+    // body: JSON.stringify({
+    //   email: formData.get("email"),
+    //   password: formData.get("password")
+    // }),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   }
+    // );
+    // const response =
+    auth.loginUserAction({
+      email: formData.get("email"),
+      password: formData.get("password"),
+    });
+    //   if (response.status !== 200) {
+    //     const data = await response.json();
+    //     toast.error(data.error);
+    //   } else {
+    //     console.log(response.json);
+    //    toast.success("Login was successful");
+    //    navigate("/homepage")
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
-
 
   return (
     <>
-    <Navbar/>
-    <Toaster position="top-center" reverseOrder={false} />
+      <Navbar />
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="min-h-[80vh] flex flex-col justify-center items-center text-center">
         <div className="h-auto w-auto p-8 mt-20 flex flex-col justify-center shadow-md items-center text-center">
-          <Typography variant="h5" sx={{fontWeight: 'bold'}} className="text-center text-[#3c2a0c] font-bold">
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: "bold" }}
+            className="text-center text-[#3c2a0c] font-bold"
+          >
             Login
           </Typography>
           <form onSubmit={loginUser}>
@@ -59,7 +68,7 @@ const UserLogin = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-              sx={{color: "#3c2a0c"}}
+              sx={{ color: "#3c2a0c" }}
             />
             <TextField
               id="outlined-basic"
@@ -69,7 +78,7 @@ const UserLogin = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-             sx={{color: "#3c2a0c"}}
+              sx={{ color: "#3c2a0c" }}
             />
             <Button
               fullWidth
@@ -82,7 +91,8 @@ const UserLogin = () => {
                 backgroundColor: "#d99e06",
                 "&:hover": {
                   backgroundColor: "#917617",
-                }, fontWeight: 'bold', 
+                },
+                fontWeight: "bold",
               }}
               variant="contained"
               //  onClick={handleSubmit}
