@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 // export const UserContext = createContext({});
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "./authContext";
 
 // eslint-disable-next-line react/prop-types
@@ -54,12 +54,18 @@ const AuthProvider = ({ children }) => {
         toast.error(data.error);
       } else {
         const res = await response.json();
-        // console.log(res);
+        console.log(res);
         if (res) {
-          setUser(res.user);
+          setUser(res.owner);
           setToken(res.token);
           toast.success("Login was successful");
-          navigate("/adminprofile/");
+         {
+           !user.restaurantId ? (
+             navigate("/account/admin/restaurant-form") 
+           ) : (
+             navigate("/adminprofile/") 
+           );
+         }
           return;
         }
       }

@@ -62,8 +62,8 @@ export const loginUser = async (req, res, next) => {
       });
     }
 
+    
     //Check if password match
-
     const match = await comparePassword(password, user.password);
     if (match) {
       jwt.sign(
@@ -98,8 +98,7 @@ export const loginUser = async (req, res, next) => {
 //     }
 // }
 
-// Endpoint for logging out
-export const logOut = async (req, res, next) => {};
+
 
 //Endpoint for getting a user
 export const getUser = async (req, res, next) => {

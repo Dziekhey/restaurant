@@ -14,9 +14,7 @@ const addRestaurant = async (event) => {
      body: formData, 
    });
  
-   if (response.status !== 201) {
-     setMessage('Failed to add restaurant!')
-   };
+   if (response.status !== 201) {};
  } catch (error) {
   console.log(error);
  }
