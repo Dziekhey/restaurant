@@ -36,7 +36,7 @@ const UserRegister = () => {
         toast.error(data.error);
       } else {
        toast.success("Sign up success");
-       navigate("/")
+       navigate("/account/users/login")
       }
     } catch (error) {
       console.log(error);

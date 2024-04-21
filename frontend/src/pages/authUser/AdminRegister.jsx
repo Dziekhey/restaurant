@@ -1,5 +1,4 @@
-import React from "react";
-import { Typography, TextField, Button, Divider } from "@mui/material";
+import { Typography, TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Navbar from "../../components/Navbar";
@@ -15,28 +14,25 @@ const AdminRegister = () => {
     const formData = new FormData(event.target);
     try {
       // Post form data to the backend
-      const response = await fetch(
-        'http://localhost:4000/owners/register',
-        {
-          method: "POST",
-          body: JSON.stringify({
-            name: formData.get("name"),
-            telephone: formData.get("telephone"),
-            email: formData.get("email"),
-            password: formData.get("password")
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      console.log(response)
+      const response = await fetch("http://localhost:4000/owners/register", {
+        method: "POST",
+        body: JSON.stringify({
+          name: formData.get("name"),
+          telephone: formData.get("telephone"),
+          email: formData.get("email"),
+          password: formData.get("password"),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(response);
       if (response.status !== 201) {
         const data = await response.json();
         toast.error(data.error);
       } else {
-       toast.success("Sign up was successful");
-       navigate("/account/admin/login")
+        toast.success("Sign up was successful");
+        navigate("/account/admin/login");
       }
     } catch (error) {
       console.log(error);
@@ -45,8 +41,8 @@ const AdminRegister = () => {
 
   return (
     <>
-    <Navbar/>
-    <Toaster position="top-center" reverseOrder={false} />
+      <Navbar />
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="min-h-[60vh] flex p-6 flex-col justify-center items-center text-center">
         <div className="size-3/4 flex flex-col-2 justify-center items-center text-center">
           <div className="h-96 w-1/2 flex items-center bg-[#e6ea5a] border-r-2 justify-center">
@@ -58,7 +54,11 @@ const AdminRegister = () => {
           </div>
 
           <div className="p-8">
-            <Typography variant="h5" sx={{fontWeight: 'bold'}} className="text-center text-[#3c2a0c]">
+            <Typography
+              variant="h5"
+              sx={{ fontWeight: "bold" }}
+              className="text-center text-[#3c2a0c]"
+            >
               Register
             </Typography>
             <form className="" onSubmit={registerOwner}>
@@ -69,7 +69,7 @@ const AdminRegister = () => {
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                sx={{color: "#3c2a0c"}}
+                sx={{ color: "#3c2a0c" }}
               />
               <TextField
                 id="outlined-basic"
@@ -78,7 +78,7 @@ const AdminRegister = () => {
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                sx={{color: "#3c2a0c"}}
+                sx={{ color: "#3c2a0c" }}
               />
               <TextField
                 id="outlined-basic"
@@ -88,7 +88,7 @@ const AdminRegister = () => {
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                sx={{color: "#3c2a0c"}}
+                sx={{ color: "#3c2a0c" }}
               />
               <TextField
                 id="outlined-basic"
@@ -98,7 +98,7 @@ const AdminRegister = () => {
                 variant="outlined"
                 fullWidth
                 margin="normal"
-               sx={{color: "#3c2a0c"}}
+                sx={{ color: "#3c2a0c" }}
               />
               <Button
                 fullWidth
@@ -107,10 +107,11 @@ const AdminRegister = () => {
                   mt: 2,
                   padding: "1rem",
                   color: "#3c2a0c",
-                backgroundColor: "#d99e06",
-                "&:hover": {
-                  backgroundColor: "#917617",
-                }, fontWeight: 'bold',
+                  backgroundColor: "#d99e06",
+                  "&:hover": {
+                    backgroundColor: "#917617",
+                  },
+                  fontWeight: "bold",
                 }}
                 variant="contained"
               >
@@ -121,7 +122,7 @@ const AdminRegister = () => {
               <Typography
                 variant="body2"
                 align="center"
-                sx={{ mt: 1, color: "#3c2a0c"}}
+                sx={{ mt: 1, color: "#3c2a0c" }}
               >
                 Have an account already?
               </Typography>

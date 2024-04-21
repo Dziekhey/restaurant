@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center justify-center ">
-            <span className="text-white ">
+            <span className="text-white pb-8">
               BiteHub &copy; 2024
             </span>
           </div>
