@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import { Avatar, Badge, IconButton } from "@mui/material";
@@ -6,10 +6,14 @@ import { green } from "@mui/material/colors";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import logo from '../assets/logo.png'
 
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <>
@@ -20,7 +24,7 @@ const Navbar = () => {
           </div>
         </Link>
         <div className="flex items-center space-x-2 1g:space-x-10">
-          <div className="flex mx-6 cursor-pointer">
+          <div className="flex mx-6 cursor-pointer ">
             <IconButton>
               <SearchIcon sx={{ fontSize: "1.5rem" }} />
             </IconButton>
@@ -55,7 +59,65 @@ const Navbar = () => {
               <h1 className="pt-2">Cart</h1>
             </div>
           </Link>
-          
+          <span
+  onClick={() => setShowMenu(true)}
+  className="text-xl lg:hidden w-10 h-10 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
+>
+  <MenuIcon />
+</span>
+
+        {showMenu && (
+          <div className="w-[80%] h-screen overflow-scroll absolute top-0 left-0 bg-gray-900 p-4 scrollbar-hide">
+            <div className="flex flex-col gap-8 py-2 relative">
+              <div>
+                <img className="w-32" src={logo} alt="logo" />
+                <p className="text-sm text-gray-400 mt-2">
+                 Where Flavor Meets Convenience.......Order In, Pick Up In Minutes
+                </p>
+              </div>
+              <ul className="flex flex-col gap-4">
+              <Link to="/homepage">
+            <div className="flex mx-6 cursor-pointer">
+              <IconButton>
+                <HomeIcon sx={{ fontSize: "1.5rem" }} />
+              </IconButton>
+              <h1 className="pt-2">Home</h1>
+            </div>
+          </Link>
+          <div
+            onClick={() => navigate("/userprofile/")}
+            className="flex mx-6 cursor-pointer"
+          >
+            <div>
+              <IconButton>
+                <PersonIcon />
+              </IconButton>
+            </div>
+            <h1 className="pt-2">Profile</h1>
+          </div>
+          <Link to="/cart">
+            <div className="flex mx-6 cursor-pointer">
+              <IconButton>
+                <Badge color="success" badgeContent={3}>
+                  <ShoppingCartIcon sx={{ fontSize: "1.5rem" }} />
+                </Badge>
+              </IconButton>
+              <h1 className="pt-2">Cart</h1>
+            </div>
+          </Link>
+              </ul>
+              <div className="flex flex-col gap-4">
+                
+              </div>
+              <span
+      onClick={() => setShowMenu(false)}
+      className="absolute top-4 right-4 text-gray-400 hover:text-white duration-300 text-2xl cursor-pointer"
+    >
+      <CloseIcon />
+    </span>
+            </div>
+          </div>
+        )}
         </div>
       </div>
     </>

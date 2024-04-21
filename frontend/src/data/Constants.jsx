@@ -7,7 +7,15 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShopTwoIcon from '@mui/icons-material/ShopTwo';
 import CategoryIcon from '@mui/icons-material/Category';
+import barbecue from '../assets/barbecue.jpg'
+import kebab from '../assets/kebab.jpg';
+import rice1 from '../assets/rice1.jpg'
+import rice2 from '../assets/rice2.jpg';
+import samosa from '../assets/samosa.jpg'
+import soup from '../assets/soup.jpg';
 
+
+const images = [barbecue, kebab, rice1, rice2, samosa, soup]
 
 const restaurants = [1,2,3,4,5,6,7,8]
 
@@ -115,4 +123,4 @@ const adminMenus = [
 ]
 
 
-export {restaurants, categories, menus, ingredients, wantedIngredients, cartOrders, navigations, orders, favorites, events, adminMenus};
+export {restaurants, categories, menus, ingredients, wantedIngredients, cartOrders, navigations, orders, favorites, events, adminMenus, images};
