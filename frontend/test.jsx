@@ -12,15 +12,12 @@ import "swiper/css/pagination";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import Navbar from "./src/components/Navbar";
 import Footer from "./src/components/Footer";
-import {
-  FormControl,
-  InputAdornment,
-  InputLabel,
-  TextField,
-} from "@mui/material";
-import { alpha, styled } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { images } from "./src/data/Constants";
+
+
+
 
 export default function App() {
   return (
@@ -41,21 +38,15 @@ export default function App() {
           modules={[Autoplay, EffectFade, Navigation, Pagination]}
           className="mySwiper"
         >
+          {
+            images.map((image, index) => 
           <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
+            <img src={image} key={index}/>
+          </SwiperSlide>)
+          }
         </Swiper>
 
-        <div className="w-[50vw] absolute z-10 text-center">
+        <div className="overlay absolute pb-32 z-10 text-center">
           <p className="text-2xl text-white lg:text-6xl font-bold z-10 py-5">
             BiteHub
           </p>
@@ -66,12 +57,14 @@ export default function App() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon />
+                  <IconButton>
+                    <SearchIcon />
+                  </IconButton>
                 </InputAdornment>
               ),
             }}
             id="outlined-basic"
-           fullWidth
+            fullWidth
             variant="outlined"
           />
         </div>
