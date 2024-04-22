@@ -5,7 +5,7 @@ const ownerSchema = new Schema({
   telephone: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  restaurantId: {
+  restaurant: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Restaurant",
   },

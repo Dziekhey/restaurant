@@ -10,10 +10,13 @@ export const addRestaurant = async (req, res, next) => {
       return res.status(404).json({ error: "Owner not found" });
     }
     // Add restaurant to database
-    const createResult = await RestaurantModel.create({...req.body, image:req.file.filename});
+    const createResult = await RestaurantModel.create({
+      ...req.body,
+      image: req.file.filename,
+    });
     // Update owner's restaurant
     await OwnerModel.findByIdAndUpdate(req.params.ownerId, {
-      $push: { restaurantId: createResult._id },
+      $push: { restaurant: createResult._id },
     });
     // Return response
     res.status(201).json(createResult);

@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
           setToken(res.token);
           toast.success("Login was successful");
          {
-           !user.restaurantId ? (
+           !user.restaurant ? (
              navigate("/account/admin/restaurant-form") 
            ) : (
              navigate("/adminprofile/") 
