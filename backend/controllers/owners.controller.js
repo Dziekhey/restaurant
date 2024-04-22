@@ -106,7 +106,7 @@ export const getOwner = async (req, res, next) => {
   try {
     // Get an owner by id
     const findByIdResult = await OwnerModel.findById(req.params.id).populate(
-      "restaurantId"
+      "restaurant"
     );
     // Return 404 if no owner is found
     if (findByIdResult === null) {

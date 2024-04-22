@@ -1,9 +1,9 @@
-import { Button, FormControl, InputLabel, MenuItem, TextField } from "@mui/material";
 import React from "react";
+import { Button, MenuItem, TextField } from "@mui/material";
 
 const categories = [
-  { value: "GH", label: "Pending" },
-  { value: "NG", label: "Completed" }
+  { value: "Pending", label: "Pending" },
+  { value: "Completed", label: "Completed" }
 ];
 
 const StatusForm = () => {
