@@ -4,14 +4,14 @@ import { RestaurantModel } from "../models/restaurant.js";
 
 export const addRestaurant = async (req, res, next) => {
   try {
-    // Check if user exist
-    const userExist = await OwnerModel.exists({ _id: req.params.ownerId });
-    if (!userExist) {
-      return res.status(404).json("User not found");
+    // Check if owner exist
+    const ownerExist = await OwnerModel.exists({ _id: req.params.ownerId });
+    if (!ownerExist) {
+      return res.status(404).json({ error: "Owner not found" });
     }
     // Add restaurant to database
-    const createResult = await RestaurantModel.create(req.body);
-    // Update user restaurant
+    const createResult = await RestaurantModel.create({...req.body, image:req.file.filename});
+    // Update owner's restaurant
     await OwnerModel.findByIdAndUpdate(req.params.ownerId, {
       $push: { restaurantId: createResult._id },
     });

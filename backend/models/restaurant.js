@@ -1,10 +1,11 @@
 import mongoose, { Schema, model } from "mongoose";
 
 const restaurantSchema = new Schema({
-  restaurantName: { type: String},
-  restaurantEmail: { type: String},
-  restaurantTelephone: { type: String},
-  restaurantDescription: { type: String},
+  image: {type: String},
+  name: { type: String},
+  email: { type: String},
+  telephone: { type: String},
+  description: { type: String},
   cuisineType: { type: String},
   openingDays: { type: String},
   openingHours: { type: String},

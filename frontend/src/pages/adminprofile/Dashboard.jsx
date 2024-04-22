@@ -5,7 +5,6 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../../services/useAuth";
 
 const Dashboard = () => {
-
   const auth = useAuth();
   if (!auth.token) return <Navigate to="/account/admin/login" />;
 
@@ -25,32 +24,35 @@ const Dashboard = () => {
         </div>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-          <div className="flex flex-col items-center justify-center">
-          <AccountCircleIcon sx={{ fontSize: "7rem" }} />
-          <div>
-          <Button
-            onClick={handleLogout}
-            variant="contained"
-            sx={{ margin: "1rem 2rem", color: "#3c2a0c",
-            backgroundColor: "#d99e06",
-            "&:hover": {
-              backgroundColor: "#917617",
-            }, }}
-          >
-            Logout
-          </Button>
-          <Button
-            onClick={handleStatus}
-            variant="contained"
-            color={true ? "primary" : "error"}
-            sx={{ margin: "1rem 2rem"}}
-          >
-            {true ? "close" : "open"}
-          </Button>
-          </div>
-        </div>
+            <div className="flex flex-col items-center justify-center">
+              <AccountCircleIcon sx={{ fontSize: "7rem" }} />
+              <div>
+                <Button
+                  onClick={handleLogout}
+                  variant="contained"
+                  sx={{
+                    margin: "1rem 2rem",
+                    color: "#3c2a0c",
+                    backgroundColor: "#d99e06",
+                    "&:hover": {
+                      backgroundColor: "#917617",
+                    },
+                  }}
+                >
+                  Logout
+                </Button>
+                <Button
+                  onClick={handleStatus}
+                  variant="contained"
+                  color={true ? "primary" : "error"}
+                  sx={{ margin: "1rem 2rem" }}
+                >
+                  {true ? "close" : "open"}
+                </Button>
+              </div>
+            </div>
           </Grid>
-          <Grid  item xs={12} lg={6}>
+          <Grid item xs={12} lg={6}>
             <Card>
               <CardHeader title={<span className="">Restaurant</span>} />
               <CardContent>
@@ -87,7 +89,15 @@ const Dashboard = () => {
                     <p className="w-48">Status</p>
                     <p>
                       <span className="pr-5">-</span>
-                      {true? <span className="px-5 py-2 rounded-full bg-green-400">Open</span>: <span className="px-5 py-2 rounded-full bg-red-400">Closed</span> }
+                      {true ? (
+                        <span className="px-5 py-2 rounded-full bg-green-400">
+                          Open
+                        </span>
+                      ) : (
+                        <span className="px-5 py-2 rounded-full bg-red-400">
+                          Closed
+                        </span>
+                      )}
                     </p>
                   </div>
                 </div>
@@ -96,14 +106,16 @@ const Dashboard = () => {
           </Grid>
           <Grid item xs={12} lg={6}>
             <Card>
-              <CardHeader title={<span className="">Location and Contact</span>} />
+              <CardHeader
+                title={<span className="">Location and Contact</span>}
+              />
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex">
                     <p className="w-48">Region</p>
                     <p>
                       <span className="pr-5">-</span>
-                     Greater Accra
+                      Greater Accra
                     </p>
                   </div>
                   <div className="flex">
@@ -124,17 +136,16 @@ const Dashboard = () => {
                     <p className="w-48">Email</p>
                     <p>
                       <span className="pr-5">-</span>
-                     abc@gmail.com
+                      abc@gmail.com
                     </p>
                   </div>
                   <div className="flex">
                     <p className="w-48">Mobile</p>
                     <p>
                       <span className="pr-5">-</span>
-                    1234567899
+                      1234567899
                     </p>
                   </div>
-                 
                 </div>
               </CardContent>
             </Card>
