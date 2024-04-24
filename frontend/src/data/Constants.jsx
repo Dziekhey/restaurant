@@ -69,14 +69,14 @@ const navigations = [
     title: "Orders",
     icon: <ShoppingBagIcon />,
   },
-  {
-    title: "Events",
-    icon: <EventIcon />,
-  },
-  {
-    title: "Notifications",
-    icon: <NotificationsIcon />,
-  },
+  // {
+  //   title: "Events",
+  //   icon: <EventIcon />,
+  // },
+  // {
+  //   title: "Notifications",
+  //   icon: <NotificationsIcon />,
+  // },
   {
     title: "Logout",
     icon: <LogoutIcon />,
@@ -105,11 +105,11 @@ const adminMenus = [
     icon: <ShopTwoIcon />,
     path: "/menu",
   },
-  {
-    title: "Events",
-    icon: <EventIcon />,
-    path: "/events",
-  },
+  // {
+  //   title: "Events",
+  //   icon: <EventIcon />,
+  //   path: "/events",
+  // },
   {
     title: "Logout",
     icon: <LogoutIcon />,

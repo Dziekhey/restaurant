@@ -101,13 +101,36 @@ export const loginOwner = async (req, res, next) => {
 //   const { token } = req;
 // };
 
+// Endpoint for all owners
+export const getAllOwners = async (req, res, next) => {
+  try {
+    //  Get all owners from database
+    const findResults = await OwnerModel.find().populate({
+      path: "restaurant",
+      populate: {
+        path: "menus",
+        model: "Menu",
+      },
+    });
+
+    // Return response
+    res.status(200).json(findResults);
+  } catch (error) {
+    next(error);
+  }
+};
+
 //Endpoint for getting an owner
 export const getOwner = async (req, res, next) => {
   try {
     // Get an owner by id
-    const findByIdResult = await OwnerModel.findById(req.params.id).populate(
-      "restaurant"
-    );
+    const findByIdResult = await OwnerModel.findById(req.params.id).populate({
+      path: "restaurant",
+      populate: {
+        path: "menus",
+        model: "Menu",
+      },
+    });
     // Return 404 if no owner is found
     if (findByIdResult === null) {
       res.status(404).json({

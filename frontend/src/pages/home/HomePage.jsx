@@ -4,8 +4,13 @@ import { restaurants } from "../../data/Constants.jsx";
 import RestaurantCard from "../../components/RestaurantCard.jsx";
 import Navbar from "../../components/Navbar.jsx";
 import Footer from "../../components/Footer.jsx";
+import useQueryRestaurant from "../../Hooks/useQueryRestaurants.js";
+import ripples from '../../assets/ripples.svg'
 
 const HomePage = () => {
+
+  const {restaurants, loading} = useQueryRestaurant()
+
   return (
     <>
     <Navbar />
@@ -18,8 +23,8 @@ const HomePage = () => {
             Order from our handpicked favorites
           </h1>
           <div className="flex flex-wrap items-center justify-around gap-5">
-            {
-                restaurants.map((restaurant) => <RestaurantCard />)
+            {loading? (<img src={ripples} alt="Loading"/>) :
+                restaurants.map((restaurant) => <RestaurantCard key={restaurant._id} restaurant={restaurant} />)
             }
           </div>
         </div>

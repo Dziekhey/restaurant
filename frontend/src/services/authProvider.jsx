@@ -1,15 +1,12 @@
-// import axios from "axios";
-// import { createContext, useEffect, useState } from "react";
-import Cookies from "js-cookie";
 import toast from "react-hot-toast";
-// export const UserContext = createContext({});
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./authContext";
 
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [owner, setOwner] = useState(null);
   const [token, setToken] = useState(null);
   const navigate = useNavigate();
 
@@ -30,8 +27,12 @@ const AuthProvider = ({ children }) => {
         if (res) {
           setUser(res.user);
           setToken(res.token);
+          localStorage.setItem("userToken", token);
+          localStorage.setItem("userName", user.name);
+          localStorage.setItem("userId", user._id);
+          localStorage.setItem("userEmail", user.email);
           toast.success("Login was successful");
-          navigate("/");
+          navigate("/userprofile/");
           return;
         }
       }
@@ -56,16 +57,19 @@ const AuthProvider = ({ children }) => {
         const res = await response.json();
         console.log(res);
         if (res) {
-          setUser(res.owner);
+          setOwner(res.owner);
+          console.log(res.owner);
           setToken(res.token);
+          localStorage.setItem("ownerName", owner.name);
+          localStorage.setItem("ownerId", owner._id);
+          localStorage.setItem("ownerEmail", owner.email);
+          localStorage.setItem("ownerToken", token);
           toast.success("Login was successful");
-         {
-           !user.restaurant ? (
-             navigate("/account/admin/restaurant-form") 
-           ) : (
-             navigate("/adminprofile/") 
-           );
-         }
+          
+            !owner.restaurant
+              ? navigate("/account/admin/restaurant-form")
+              : navigate("/adminprofile/");
+          
           return;
         }
       }
@@ -76,8 +80,16 @@ const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     setUser(null);
+    setOwner(null);
     setToken("");
-    // localStorage.removeItem("site");
+    localStorage.removeItem("ownerToken");
+    localStorage.removeItem("ownerId");
+    localStorage.removeItem("ownerName");
+    localStorage.removeItem("ownerEmail");
+    localStorage.removeItem("userToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
     navigate("/");
   };
 

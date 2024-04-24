@@ -2,7 +2,7 @@ import React from "react";
 import { Divider, Drawer, useMediaQuery } from "@mui/material";
 import { navigations } from "../../data/Constants";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../components/Footer";
+
 
 const ProfileNavigation = ({ open, handleClose }) => {
   const isSmallScreen = useMediaQuery("(max-width:900px)");

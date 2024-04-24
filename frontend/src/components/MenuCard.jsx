@@ -34,21 +34,20 @@ console.log('value')
                 alt="Menu Image"
                 className="w-[7rem] h-[7rem] object-cover"
               />
-              <div className="space-y-1 lg:space-y-5 lg:max-w-2xl">
+              <div className="space-y-1 pl-5 lg:space-y-5 lg:max-w-2xl">
                 <p className="font-semibold text-xl">Kenkey</p>
                 <p>GH₵10</p>
-                <p className="">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </p>
               </div>
             </div>
           </div>
         </AccordionSummary>
         <AccordionDetails>
+          <p className="">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </p>
           <form>
-            <div className="flex gap-5 flex-wrap">
+            {/* <div className="flex gap-5 flex-wrap">
               {ingredients.map((ingredient) => (
                 <div>
                   <p>{ingredient.category}</p>
@@ -59,9 +58,11 @@ console.log('value')
                   </FormGroup>
                 </div>
               ))}
-            </div>
+            </div> */}
             <div className="pt-5">
-              <Button type="submit" variant="contained">Add to Cart</Button>
+              <Button type="submit" variant="contained">
+                Add to Cart
+              </Button>
             </div>
           </form>
         </AccordionDetails>

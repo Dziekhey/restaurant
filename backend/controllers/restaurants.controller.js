@@ -28,7 +28,7 @@ export const addRestaurant = async (req, res, next) => {
 export const getAllRestaurants = async (req, res, next) => {
   try {
     //  Get all restaurants from database
-    const findResults = await RestaurantModel.find();
+    const findResults = await RestaurantModel.find().populate('menus');
 
     // Return response
     res.status(200).json(findResults);
@@ -40,7 +40,7 @@ export const getAllRestaurants = async (req, res, next) => {
 export const getRestaurant = async (req, res, next) => {
   try {
     // Get a single restaurant by id
-    const findByIdResult = await RestaurantModel.findById(req.params.id);
+    const findByIdResult = await RestaurantModel.findById(req.params.id).populate('menus');
 
     // Return 404 if no restaurant is found
     if (findByIdResult === null) {

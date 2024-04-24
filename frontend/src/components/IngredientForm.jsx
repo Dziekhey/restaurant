@@ -3,15 +3,15 @@ import { Button, Chip, FormControl, InputLabel, MenuItem, TextField } from "@mui
 import CloseIcon from '@mui/icons-material/Close';
 
 const categories = [
-  { value: "GH", label: "Protein" },
-  { value: "NG", label: "Seasonings" },
-  { value: "TG", label: "Sweeteners" },
-  { value: "AU", label: "Oils" },
-  { value: "AU", label: "Sources" },
+  { value: "Protein", label: "Protein" },
+  { value: "Seasonings", label: "Seasonings" },
+  { value: "Sweeteners", label: "Sweeteners" },
+  { value: "Oils", label: "Oils" },
+  { value: "Sources", label: "Sources" },
 ];
 
 const IngredientForm = () => {
-  const [category, setCategory] = useState("GH");
+  const [category, setCategory] = useState("Protein");
   const [ingredientNames, setIngredientNames] = useState([]);
   const [currentIngredient, setCurrentIngredient] = useState("");
 

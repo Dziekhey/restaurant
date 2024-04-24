@@ -25,7 +25,7 @@ app.use(express.static('uploads'));
 app.use('/users', usersRoute);
 app.use('/owners', ownerRoute);
 app.use('/restaurants', restaurantRoute);
-app.use('/menu', menuRoute);
+app.use('/menus', menuRoute);
 app.use('/orders', orderRoute);
 app.use('/carts', cartRoute);
 

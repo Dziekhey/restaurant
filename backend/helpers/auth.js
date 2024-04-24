@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken";
 
 const hashPassword = (password) => {
     return new Promise((resolve, reject) => {

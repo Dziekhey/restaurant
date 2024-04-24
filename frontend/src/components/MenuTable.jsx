@@ -19,6 +19,8 @@ import CreateIcon from "@mui/icons-material/Create";
 import Delete from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import IngredientForm from "./IngredientForm";
+import useQueryOwners from "../Hooks/useQueryOwner";
+import { useAuth } from "../services/useAuth";
 
 const orders = [1, 2, 3, 4, 5];
 
@@ -35,9 +37,16 @@ const style = {
 };
 
 const MenuTable = () => {
+const auth = useAuth();
+  
+
+  const ownerId = localStorage.getItem("ownerId");
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+const { owner, loading } = useQueryOwners(ownerId);
 
   return (
     <>
@@ -65,43 +74,45 @@ const MenuTable = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="left">Image</TableCell>
-                  <TableCell align="right">Food Category</TableCell>
-                  <TableCell align="right">Food Name</TableCell>
-                  <TableCell align="right">Ingredients</TableCell>
-                  <TableCell align="right">Price</TableCell>
-                  <TableCell align="right">Actions</TableCell>
-                  <TableCell align="right">Add ingredients</TableCell>
+                  <TableCell align="center">Image</TableCell>
+                  <TableCell align="center">Food Category</TableCell>
+                  <TableCell align="center">Food Name</TableCell>
+                  {/* <TableCell align="center">Ingredients</TableCell> */}
+                  <TableCell align="center">Price</TableCell>
+                  <TableCell align="center">Actions</TableCell>
+                  {/* <TableCell align="center">Add ingredients</TableCell> */}
                 </TableRow>
               </TableHead>
               <TableBody>
-                {orders.map((order) => (
-                  <TableRow
-                    key={order.name}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="order">
-                      {1462662655}
-                    </TableCell>
-                    <TableCell align="right">{"Image"}</TableCell>
-                    <TableCell align="right">{"kenkey"}</TableCell>
-                    <TableCell align="right">{"fish"}</TableCell>
-                    <TableCell align="right">{"2"}</TableCell>
-                    <TableCell align="right">
-                      <IconButton>
-                        <Delete />
-                      </IconButton>
-                      <IconButton>
-                        <CreateIcon />
-                      </IconButton>
-                    </TableCell>
-                    <TableCell align="right" className="flex">
-                      <IconButton onClick={handleOpen}>
-                        <AddIcon />
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                {owner &&
+                  owner.restaurant &&
+                  owner.restaurant.menus.map((menu) => (
+                    <TableRow
+                      key={menu}
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="order">
+                        {menu.image}
+                      </TableCell>
+                      <TableCell align="center">{menu.category}</TableCell>
+                      <TableCell align="center">{menu.name}</TableCell>
+                      {/* <TableCell align="center">{"2"}</TableCell> */}
+                      <TableCell align="center">{menu.price}</TableCell>
+                      <TableCell align="center">
+                        <IconButton>
+                          <Delete />
+                        </IconButton>
+                        <IconButton>
+                          <CreateIcon />
+                        </IconButton>
+                      </TableCell>
+                      {/* <TableCell align="right" className="flex">
+                        <IconButton onClick={handleOpen}>
+                          <AddIcon />
+                        </IconButton>
+                      </TableCell> */}
+                    </TableRow>
+                  ))}
               </TableBody>
             </Table>
           </TableContainer>

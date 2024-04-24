@@ -4,13 +4,27 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Divider } from "@mui/material";
 import Filter from "../../components/Filter.jsx";
-import { menus } from "../../data/Constants.jsx";
+import { menus, restaurants } from "../../data/Constants.jsx";
 import MenuCard from "../../components/MenuCard.jsx";
 import Navbar from "../../components/Navbar.jsx";
 import Footer from "../../components/Footer.jsx";
+import { useParams } from "react-router-dom";
+import useSWR from 'swr';
 
+
+const getRestaurant = (...args) => {
+  // Prepare url
+  const url = new URL(args[0]);
+  url.searchParams.append ('apiKey', import.meta.env.VITE_RESTAURANT_API_KEY);
+ //  fetch and return restaurants
+ return fetch (url).then(response => response.json());
+}
 
 const RestaurantPage = () => {
+const {id} = useParams();
+const {restaurant, loading} = useSWR(`http://localhost:4000/restaurants/${id}`, getRestaurant)
+console.log(restaurant)
+
   return (
     <>
     <Navbar/>
@@ -47,7 +61,7 @@ const RestaurantPage = () => {
             <div className="space-y-10 lg:w-[20%] filter">
               <Filter />
             </div>
-            <div className="space-y-5 lg:w-[80%] lg:pl-10 ">
+            <div className="space-y-5 pb-8 lg:w-[80%] lg:pl-10 ">
               {menus.map((menu) => (
                 <MenuCard key={menus}/>
               ))}

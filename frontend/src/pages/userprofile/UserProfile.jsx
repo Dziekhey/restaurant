@@ -1,24 +1,32 @@
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Button } from "@mui/material";
-import { Navigate } from "react-router-dom";
-// import Navbar from "../../components/Navbar";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../services/useAuth";
+import { useEffect } from "react";
 
 const UserProfile = () => {
   const auth = useAuth();
-  if (!auth.token) return <Navigate to="/account/users/login" />;
+  const user = localStorage.getItem("userId");
+  const userToken = localStorage.getItem("userToken");
+  const userName = localStorage.getItem("userName");
+  const userEmail = localStorage.getItem("ownerEmail");
+  const navigate = useNavigate();
   
   const handleLogout = () => {
     auth.logOut();
   };
+
+  useEffect(() => {
+    if (!userToken) navigate("/account/users/login");
+  }, []);
 
   return (
     <>
       <div className="min-h-[80vh] flex flex-col justify-center items-center text-center">
         <div className="flex flex-col items-center justify-center">
           <AccountCircleIcon sx={{ fontSize: "9rem" }} />
-          <h1 className="py-4 text-4xl font-semibold">{auth.user.name}</h1>
-          <p className="text-2xl">{auth.user.email}</p>
+          <h1 className="py-4 text-4xl font-semibold">{userName}</h1>
+          <p className="text-2xl">{userEmail}</p>
           <Button
             onClick={handleLogout}
             variant="contained"

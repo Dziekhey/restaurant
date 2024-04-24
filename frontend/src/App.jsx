@@ -11,7 +11,6 @@ import AdminRegister from "./pages/authUser/AdminRegister.jsx";
 import AdminLogin from "./pages/authUser/AdminLogin.jsx";
 import RestaurantForm from "./components/RestaurantForm.jsx";
 import { Toaster } from "react-hot-toast";
-// import { UserContextProvider } from "./services/authProvider.jsx";
 import AuthProvider from "./services/authProvider.jsx";
 
 const App = () => {

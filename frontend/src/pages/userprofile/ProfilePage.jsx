@@ -24,8 +24,8 @@ const ProfilePage = () => {
             <Route path="/" element={<UserProfile />} />
             <Route path="/favorites" element={<FavoritePage />} />
             <Route path="/orders" element={<OrdersPage />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="/notifications" element={<NotificationPage />} />
+            {/* <Route path="/events" element={<EventsPage />} />
+            <Route path="/notifications" element={<NotificationPage />} /> */}
             <Route path="/logout" element={<UserProfile />} />
           </Routes>
         </div>

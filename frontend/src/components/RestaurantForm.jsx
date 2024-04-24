@@ -157,7 +157,7 @@ const RestaurantForm = () => {
                 <TextField
                   id="outlined-select-currency"
                   select
-                  label="Order Status"
+                  label="Restaurant Status"
                   name="status"
                   defaultValue="GH"
                   fullWidth
