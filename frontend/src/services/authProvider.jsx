@@ -31,6 +31,7 @@ const AuthProvider = ({ children }) => {
           localStorage.setItem("userName", user.name);
           localStorage.setItem("userId", user._id);
           localStorage.setItem("userEmail", user.email);
+          localStorage.setItem("userTelephone", user.telephone);
           toast.success("Login was successful");
           navigate("/userprofile/");
           return;
@@ -55,7 +56,6 @@ const AuthProvider = ({ children }) => {
         toast.error(data.error);
       } else {
         const res = await response.json();
-        console.log(res);
         if (res) {
           setOwner(res.owner);
           console.log(res.owner);
@@ -63,6 +63,7 @@ const AuthProvider = ({ children }) => {
           localStorage.setItem("ownerName", owner.name);
           localStorage.setItem("ownerId", owner._id);
           localStorage.setItem("ownerEmail", owner.email);
+          localStorage.setItem("restaurantId", owner.restaurant);
           localStorage.setItem("ownerToken", token);
           toast.success("Login was successful");
           
@@ -86,10 +87,12 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("ownerId");
     localStorage.removeItem("ownerName");
     localStorage.removeItem("ownerEmail");
+    localStorage.removeItem("restaurantId");
     localStorage.removeItem("userToken");
     localStorage.removeItem("userId");
     localStorage.removeItem("userName");
     localStorage.removeItem("userEmail");
+    localStorage.removeItem("userTelephone");
     navigate("/");
   };
 

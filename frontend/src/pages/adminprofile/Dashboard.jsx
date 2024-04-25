@@ -6,6 +6,7 @@ import useQueryOwners from "../../Hooks/useQueryOwner";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Switch from "react-switch";
+import ripples from '../../assets/ripples.svg';
 
 const Dashboard = () => {
   const auth = useAuth();
@@ -31,6 +32,9 @@ const Dashboard = () => {
         `http://localhost:4000/restaurants/${owner.restaurant._id}`,
         {
           method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             status: checked ? "Open" : "Closed",
           }),
@@ -89,7 +93,7 @@ const Dashboard = () => {
   return (
     <>
       {loading ? (
-        <p>Loading</p>
+        <img src={ripples} />
       ) : (
         owner &&
         owner.restaurant && (
@@ -178,7 +182,7 @@ const Dashboard = () => {
                       </div>
                       <div className="flex">
                         <p className="w-48">Status</p>
-                        <p>
+                        <p className={`${checked ? "success" : "primary"}`}>
                           <span className="pr-5">-</span>
                           {owner.restaurant.status}
                         </p>

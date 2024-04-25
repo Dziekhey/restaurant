@@ -9,6 +9,8 @@ import {
 import React, { useState } from "react";
 import OrderTable from "../../components/OrderTable";
 import { lime } from "@mui/material/colors";
+import useQueryOrders from "../../Hooks/useQueryOrders";
+import ripples from '../../assets/ripples.svg'
 
 const OrderStatus = [
   { label: "All", value: "ALL" },
@@ -16,7 +18,16 @@ const OrderStatus = [
   { label: "Completed", value: "COMPLETED" },
 ];
 const AdminOrders = () => {
+  const restaurantId = localStorage.getItem("restaurantId");
+
   const [filterValue, setFilterValue] = useState();
+
+  const { ownerOrders} = useQueryOrders(restaurantId);
+
+
+  if(!ownerOrders){
+    return <img src={ripples} />
+  }
 
   const handleFilter = (e, value) => {
     setFilterValue(value);
@@ -54,7 +65,7 @@ const AdminOrders = () => {
           </FormControl>
           </div>
         </Card>
-        <OrderTable />
+        <OrderTable ownerOrders={ownerOrders} />
       </div>
     </>
   );

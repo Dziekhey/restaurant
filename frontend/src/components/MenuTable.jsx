@@ -37,8 +37,7 @@ const style = {
 };
 
 const MenuTable = () => {
-const auth = useAuth();
-  
+  const auth = useAuth();
 
   const ownerId = localStorage.getItem("ownerId");
 
@@ -46,7 +45,7 @@ const auth = useAuth();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-const { owner, loading } = useQueryOwners(ownerId);
+  const { owner, loading } = useQueryOwners(ownerId);
 
   return (
     <>

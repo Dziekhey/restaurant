@@ -3,7 +3,8 @@ import { Button, MenuItem, TextField } from "@mui/material";
 
 const categories = [
   { value: "Pending", label: "Pending" },
-  { value: "Completed", label: "Completed" }
+  { value: "Completed", label: "Completed" },
+  { value: "Failed", label: "Failed" },
 ];
 
 const StatusForm = () => {
@@ -12,7 +13,7 @@ const StatusForm = () => {
       <div className="">
         <div className="p-5">
           <div className="pb-6">
-            <h className="text-center text-xl pb-10">Add ingredients</h>
+            <h className="text-center text-xl pb-10">Update Status</h>
           </div>
           <form>
             <TextField
@@ -20,7 +21,7 @@ const StatusForm = () => {
               select
               label="Order Status"
               name="status"
-              defaultValue="GH"
+              defaultValue="Pending"
               fullWidth
             >
               {categories.map((option) => (
@@ -30,11 +31,20 @@ const StatusForm = () => {
               ))}
             </TextField>
             <div className="mt-3">
-            <Button sx={{color: "#3c2a0c",
-            backgroundColor: "#d99e06",
-            "&:hover": {
-              backgroundColor: "#917617",
-            }}} variant="contained" type="submit" className="mt-3">Update</Button>
+              <Button
+                sx={{
+                  color: "#3c2a0c",
+                  backgroundColor: "#d99e06",
+                  "&:hover": {
+                    backgroundColor: "#917617",
+                  },
+                }}
+                variant="contained"
+                type="submit"
+                className="mt-3"
+              >
+                Update
+              </Button>
             </div>
           </form>
         </div>

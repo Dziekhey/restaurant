@@ -32,44 +32,41 @@ const availabilty = [
 ];
 
 const MenuForm = () => {
-
   const auth = useAuth();
 
-   const ownerId = localStorage.getItem("ownerId");
+  const ownerId = localStorage.getItem("ownerId");
 
   const navigate = useNavigate();
 
-    const { owner, loading } = useQueryOwners(ownerId);
+  const { owner, loading } = useQueryOwners(ownerId);
 
-    const addMenu = async (event) => {
-      try {
-        event.preventDefault();
+  const addMenu = async (event) => {
+    try {
+      event.preventDefault();
 
-        const formData = new FormData(event.target);
+      const formData = new FormData(event.target);
 
-        
-        // Access restaurantId from owners
-        // const restaurantId = auth.user._id;
-        const response = await fetch(
-          `http://localhost:4000/menus/${owner.restaurant._id}`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-
-        if (response.status !== 201) {
-          const data = await response.json();
-          toast.error(data.error);
-        } else {
-          toast.success("Menu was added successfully");
-          navigate("/adminprofile/menu");
+      // Access restaurantId from owners
+      // const restaurantId = auth.user._id;
+      const response = await fetch(
+        `http://localhost:4000/menus/${owner.restaurant._id}`,
+        {
+          method: "POST",
+          body: formData,
         }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+      );
 
+      if (response.status !== 201) {
+        const data = await response.json();
+        toast.error(data.error);
+      } else {
+        toast.success("Menu was added successfully");
+        navigate("/adminprofile/menu");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>

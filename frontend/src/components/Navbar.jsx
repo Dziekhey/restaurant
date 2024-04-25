@@ -22,12 +22,12 @@ const Navbar = () => {
           </div>
         </Link>
         <div className=" flex items-center space-x-2 1g:space-x-10">
-          <div className="flex mx-6 cursor-pointer ">
+          {/* <div className="flex mx-6 cursor-pointer ">
             <IconButton>
               <SearchIcon sx={{ fontSize: "1.5rem" }} />
             </IconButton>
             <h1 className="pt-2">Search</h1>
-          </div>
+          </div> */}
           <Link to="/">
             <div className="flex mx-6 cursor-pointer">
               <IconButton>
@@ -47,7 +47,7 @@ const Navbar = () => {
             </div>
             <h1 className="pt-2">Profile</h1>
           </div>
-          <Link to="/cart">
+          {/* <Link to="/cart">
             <div className="flex mx-6 cursor-pointer">
               <IconButton>
                 <Badge color="success" badgeContent={3}>
@@ -56,7 +56,7 @@ const Navbar = () => {
               </IconButton>
               <h1 className="pt-2">Cart</h1>
             </div>
-          </Link>
+          </Link> */}
           <span
             onClick={() => setShowMenu(true)}
             className="text-xl w-10 h-10 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
@@ -94,7 +94,7 @@ const Navbar = () => {
                     </div>
                     <h1 className="pt-2">Profile</h1>
                   </div>
-                  <Link to="/cart">
+                  {/* <Link to="/cart">
                     <div className="flex mx-6 cursor-pointer">
                       <IconButton>
                         <Badge color="success" badgeContent={3}>
@@ -103,7 +103,7 @@ const Navbar = () => {
                       </IconButton>
                       <h1 className="pt-2">Cart</h1>
                     </div>
-                  </Link>
+                  </Link> */}
                 </ul>
                 <div className="flex flex-col gap-4"></div>
                 <span

@@ -13,12 +13,6 @@ const restaurantSchema = new Schema({
   city: { type: String},
   town: { type: String},
   status: { type: String},
-  orders: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Order",
-    },
-  ],
   menus: [
     {
       type: mongoose.Schema.Types.ObjectId,

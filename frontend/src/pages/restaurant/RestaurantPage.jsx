@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import sample from "../../assets/hero.jpg";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
@@ -9,48 +9,59 @@ import MenuCard from "../../components/MenuCard.jsx";
 import Navbar from "../../components/Navbar.jsx";
 import Footer from "../../components/Footer.jsx";
 import { useParams } from "react-router-dom";
-import useSWR from 'swr';
-
+import useSWR from "swr";
+import ripples from "../../assets/ripples.svg";
+import CallIcon from "@mui/icons-material/Call";
 
 const getRestaurant = (...args) => {
   // Prepare url
   const url = new URL(args[0]);
-  url.searchParams.append ('apiKey', import.meta.env.VITE_RESTAURANT_API_KEY);
- //  fetch and return restaurants
- return fetch (url).then(response => response.json());
-}
+  return fetch(url).then((response) => response.json());
+};
 
 const RestaurantPage = () => {
-const {id} = useParams();
-const {restaurant, loading} = useSWR(`http://localhost:4000/restaurants/${id}`, getRestaurant)
-console.log(restaurant)
+  const { id } = useParams();
+  const [category, setCategory] = useState("All");
+  const { data, loading, error } = useSWR(
+    `http://localhost:4000/restaurants/${id}`,
+    getRestaurant
+  );
+
+
+  if (loading)
+    return (
+      <div>
+        <img src={ripples} />
+      </div>
+    );
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div>
         <section>
           <img src={sample} className="w-full h-[60vh] object-cover" />
           <div className="pt-3 pb-5 px-5 lg:px-20">
             <h1 className="text-4xl font-semibold text-[#3c2a0c]">
-              Ghanaian Fast Food
+              {data?.name}
             </h1>
-            <p className="mt-1 text-[#674e1c]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-              dolore, temporibus qui animi, architecto fuga soluta nulla id
-              consequuntur ut incidunt et, pariatur facere aliquam neque libero
-              quidem dolores vero!
-            </p>
+            <p className="mt-1 text-[#674e1c]">{data?.description}</p>
             <div className="space-y-3 mt-3">
               <p className="text-[#674e1c] flex items-center gap-3">
                 <LocationOnIcon />
                 <span className="text-[#674e1c]">
-                  Greater Accra Region: East Legon, Accra
+                  {data?.region}: {data?.town}, {data?.city}
                 </span>
               </p>
               <p className="text-[#674e1c] flex items-center gap-3">
                 <CalendarTodayIcon />
-                <span className="">Monday-Sunday: 9:00 AM - 9:00 PM</span>
+                <span className="">
+                  {data?.openingDays}: {data?.openingHours}
+                </span>
+              </p>
+              <p className="text-[#674e1c] flex items-center gap-3">
+                <CallIcon />
+                <span className="">{data?.telephone}</span>
               </p>
             </div>
           </div>
@@ -59,17 +70,21 @@ console.log(restaurant)
         <div className="px-5 lg:px-20">
           <section className="pt-[2rem] lg:flex relative">
             <div className="space-y-10 lg:w-[20%] filter">
-              <Filter />
+              <Filter setCategory={setCategory} />
             </div>
             <div className="space-y-5 pb-8 lg:w-[80%] lg:pl-10 ">
-              {menus.map((menu) => (
-                <MenuCard key={menus}/>
-              ))}
+              {category === "All"
+                ? data?.menus.map((menu) => (
+                    <MenuCard key={menu._id} menu={menu} restaurant={data}/>
+                  ))
+                : data?.menus
+                    .filter((menu) => menu.category === category)
+                    .map((menu) => <MenuCard key={menu._id} menu={menu} />)}
             </div>
           </section>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };

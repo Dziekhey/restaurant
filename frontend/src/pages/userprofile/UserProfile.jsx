@@ -9,9 +9,10 @@ const UserProfile = () => {
   const user = localStorage.getItem("userId");
   const userToken = localStorage.getItem("userToken");
   const userName = localStorage.getItem("userName");
-  const userEmail = localStorage.getItem("ownerEmail");
+  const userEmail = localStorage.getItem("userEmail");
+  const userTelephone = localStorage.getItem("userTelephone");
   const navigate = useNavigate();
-  
+
   const handleLogout = () => {
     auth.logOut();
   };
@@ -27,6 +28,7 @@ const UserProfile = () => {
           <AccountCircleIcon sx={{ fontSize: "9rem" }} />
           <h1 className="py-4 text-4xl font-semibold">{userName}</h1>
           <p className="text-2xl">{userEmail}</p>
+          <p className="text-2xl pt-4">{userTelephone}</p>
           <Button
             onClick={handleLogout}
             variant="contained"
