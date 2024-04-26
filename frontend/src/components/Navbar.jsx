@@ -15,10 +15,11 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="px-5 h-16 sticky top-0 z-50 py-[.8rem] lg:px-20 flex bg-amber-400 justify-between">
+      <div className="px-5 h-20 sticky top-0 z-50 py-[.8rem] lg:px-20 flex bg-[#bda915] justify-between">
         <Link to="/">
           <div className="1g:mr-10 cursor-pointer flex items-center space-x-4">
-            <li className="logo text-white font-semibold text-2xl">BiteHub</li>
+            {/* <li className="logo text-white font-semibold text-2xl">BiteHub</li> */}
+<img src={logo} className="h-16 w-32"/>
           </div>
         </Link>
         <div className=" flex items-center space-x-2 1g:space-x-10">
@@ -31,9 +32,9 @@ const Navbar = () => {
           <Link to="/">
             <div className="flex mx-6 cursor-pointer">
               <IconButton>
-                <HomeIcon sx={{ fontSize: "1.5rem" }} />
+                <HomeIcon sx={{ fontSize: "1.5rem", color: 'white' }} />
               </IconButton>
-              <h1 className="pt-2">Home</h1>
+              <h1 className="pt-2 text-white">Home</h1>
             </div>
           </Link>
           <div
@@ -42,10 +43,10 @@ const Navbar = () => {
           >
             <div>
               <IconButton>
-                <PersonIcon />
+                <PersonIcon sx={{color: 'white'}} />
               </IconButton>
             </div>
-            <h1 className="pt-2">Profile</h1>
+            <h1 className="pt-2 text-white">Profile</h1>
           </div>
           {/* <Link to="/cart">
             <div className="flex mx-6 cursor-pointer">
@@ -61,7 +62,7 @@ const Navbar = () => {
             onClick={() => setShowMenu(true)}
             className="text-xl w-10 h-10 inline-flex items-center justify-center rounded-full text-white cursor-pointer"
           >
-            <MenuIcon sx={{ color: "#3c2a0c" }} />
+            {/* <MenuIcon sx={{ color: "#3c2a0c" }} /> */}
           </span>
 
           {showMenu && (

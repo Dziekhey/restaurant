@@ -14,31 +14,6 @@ const AdminLogin = () => {
     event.preventDefault();
     // Get form data
     const formData = new FormData(event.target);
-    // try {
-    //   // Post form data to the backend
-    //   const response = await fetch(
-    //     'http://localhost:4000/owners/login',
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify({
-    //         email: formData.get("email"),
-    //         password: formData.get("password")
-    //       }),
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-    //   if (response.status !== 200) {
-    //     const data = await response.json();
-    //     toast.error(data.error);
-    //   } else {
-    //    toast.success("Login was successful");
-    //    navigate("/account/admin/restaurant-form")
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
 
      auth.loginOwnerAction({
        email: formData.get("email"),
@@ -53,7 +28,7 @@ const AdminLogin = () => {
       <div className="min-h-[80vh] flex flex-col justify-center items-center text-center">
         <div className="h-auto w-auto p-8 mt-20 flex flex-col justify-center shadow-md items-center text-center">
           <Typography variant="h5" sx={{fontWeight: 'bold'}} className="text-center text-[#3c2a0c] font-bold">
-            Login
+            Owners' Login
           </Typography>
           <form onSubmit={loginOwner}>
             <TextField
@@ -64,7 +39,7 @@ const AdminLogin = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-              sx={{color: "#3c2a0c"}}
+              color="warning"
             />
             <TextField
               id="outlined-basic"
@@ -74,7 +49,7 @@ const AdminLogin = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-             sx={{color: "#3c2a0c"}}
+              color="warning"
             />
             <Button
               fullWidth
@@ -83,14 +58,13 @@ const AdminLogin = () => {
               sx={{
                 mt: 2,
                 padding: "1rem",
-                color: "#3c2a0c",
-                backgroundColor: "#d99e06",
+                color: "dark",
+                backgroundColor: "#536d1b",
                 "&:hover": {
-                  backgroundColor: "#917617",
-                }, fontWeight: 'bold', 
+                  backgroundColor: "#bda915",
+                },
               }}
               variant="contained"
-              //  onClick={handleSubmit}
             >
               Login
             </Button>

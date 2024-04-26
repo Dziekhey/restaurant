@@ -160,7 +160,13 @@ const MenuForm = () => {
                 Add Menu
               </Button>
               <Link to="/adminprofile/menu">
-                <Button variant="contained" color="primary" type="submit">
+                <Button sx={{
+                  color: "dark",
+                  backgroundColor: "#536d1b",
+                  "&:hover": {
+                    backgroundColor: "#bda915",
+                  },
+                }} variant="contained" color="primary" type="submit">
                   Close
                 </Button>
               </Link>

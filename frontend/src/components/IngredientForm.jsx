@@ -85,7 +85,13 @@ const IngredientForm = () => {
             <Chip key={ingredient} label={ingredient}/>
           ))}
         </div>
-        <Button sx={{mt: '15px'}}  variant="contained" type="submit" className="mt-3">
+        <Button sx={{mt: '15px',
+                  color: "dark",
+                  backgroundColor: "#536d1b",
+                  "&:hover": {
+                    backgroundColor: "#bda915",
+                  },
+                }}  variant="contained" type="submit" className="mt-3">
           Create
         </Button>
       </form>

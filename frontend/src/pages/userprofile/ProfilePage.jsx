@@ -8,6 +8,7 @@ import EventsPage from "./EventsPage";
 import NotificationPage from "./NotificationPage";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import AllRestaurantsPage from "./AllRestaurantsPage";
 
 const ProfilePage = () => {
   const [openSideBar, setOpenSideBar] = useState(false);
@@ -22,11 +23,14 @@ const ProfilePage = () => {
         <div className="lg:w-[80%]">
           <Routes>
             <Route path="/" element={<UserProfile />} />
-            <Route path="/favorites" element={<FavoritePage />} />
             <Route path="/orders" element={<OrdersPage />} />
-            {/* <Route path="/events" element={<EventsPage />} />
-            <Route path="/notifications" element={<NotificationPage />} /> */}
-            <Route path="/logout" element={<UserProfile />} />
+            <Route path="/dashboard" element={<UserProfile />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/browse restaurants" element={<AllRestaurantsPage />} />
+            {/* <Route path="/favorites" element={<FavoritePage />} /> */}
+            {/* <Route path="/events" element={<EventsPage />} /> */}
+            {/* <Route path="/notifications" element={<NotificationPage />} /> */}
+            {/* <Route path="/logout" element={<UserProfile />} /> */}
           </Routes>
         </div>
       </div>

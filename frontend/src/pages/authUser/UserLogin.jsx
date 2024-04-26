@@ -13,51 +13,26 @@ const UserLogin = () => {
     event.preventDefault();
     // Get form data
     const formData = new FormData(event.target);
-    // try {
-    // Post form data to the backend
-    // const response = await fetch(
-    //   'http://localhost:4000/users/login',
-    //   {
-    //     method: "POST",
-    // body: JSON.stringify({
-    //   email: formData.get("email"),
-    //   password: formData.get("password")
-    // }),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   }
-    // );
-    // const response =
+   
     auth.loginUserAction({
       email: formData.get("email"),
       password: formData.get("password"),
     });
-    //   if (response.status !== 200) {
-    //     const data = await response.json();
-    //     toast.error(data.error);
-    //   } else {
-    //     console.log(response.json);
-    //    toast.success("Login was successful");
-    //    navigate("/homepage")
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+  
   };
 
   return (
     <>
       <Navbar />
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="min-h-[80vh] flex flex-col justify-center items-center text-center">
-        <div className="h-auto w-auto p-8 mt-20 flex flex-col justify-center shadow-md items-center text-center">
+      <div className="min-h-[80vh] flex flex-col justify-center items-center text-center ">
+        <div className="h-auto w-auto p-8 mt-20 flex flex-col justify-center shadow-md  items-center text-center">
           <Typography
             variant="h5"
             sx={{ fontWeight: "bold" }}
             className="text-center text-[#3c2a0c] font-bold"
           >
-            Login
+            Customers' Login
           </Typography>
           <form onSubmit={loginUser}>
             <TextField
@@ -68,7 +43,7 @@ const UserLogin = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-              sx={{ color: "#3c2a0c" }}
+              color="warning"
             />
             <TextField
               id="outlined-basic"
@@ -78,7 +53,7 @@ const UserLogin = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-              sx={{ color: "#3c2a0c" }}
+              color="warning"
             />
             <Button
               fullWidth
@@ -87,12 +62,11 @@ const UserLogin = () => {
               sx={{
                 mt: 2,
                 padding: "1rem",
-                color: "#3c2a0c",
-                backgroundColor: "#d99e06",
+                color: "dark",
+                backgroundColor: "#536d1b",
                 "&:hover": {
-                  backgroundColor: "#917617",
+                  backgroundColor: "#bda915",
                 },
-                fontWeight: "bold",
               }}
               variant="contained"
               //  onClick={handleSubmit}

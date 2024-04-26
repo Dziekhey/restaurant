@@ -22,7 +22,7 @@ const ProfileNavigation = ({ open, handleClose }) => {
           anchor="left"
           sx={{ zIndex: -1, position: "sticky" }}
         >
-          <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col bg-amber-200 text-xl gap-8 ">
+          <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col bg-amber-200 space-y-8 text-xl gap-8 justify-center pt-24">
             {navigations.map((navigation, index) => (
               <>
                 <div key={index}

@@ -91,7 +91,7 @@ const MenuCard = ({ menu, restaurant }) => {
           <div className="lg:flex item-center justify-between">
             <div className="lg:flex items-center lg:gap-5">
               <img
-                src={menuImg}
+                src={`https://savefiles.org/${menu.image}?shareable_link=205`}
                 alt="Menu Image"
                 className="w-[7rem] h-[7rem] object-cover"
               />
@@ -126,19 +126,25 @@ const MenuCard = ({ menu, restaurant }) => {
                 <IconButton onClick={decreaseItem}>
                   <RemoveCircleOutlineIcon />
                 </IconButton>
-                <div className="w-5 h-5 text-xs flex items-center justify-center">
+                <div className="w-5 h-5 text-xl flex items-center justify-center">
                   {number}
                 </div>
                 <IconButton onClick={increaseItem}>
                   <AddCircleOutlineIcon />
                 </IconButton>
               </div>
-              <p className="pt-7">GH₵{totalPrice}</p>{" "}
+              <p className="pt-7 text-xl">GH₵{totalPrice}</p>{" "}
               {/* Display total price */}
             </div>
             <div className="pt-5">
-              <Button type="submit" variant="contained">
-                Order
+              <Button sx={{
+                  color: "dark",
+                  backgroundColor: "#536d1b",
+                  "&:hover": {
+                    backgroundColor: "#bda915",
+                  },
+                }} type="submit" variant="contained">
+                Place Order
               </Button>
             </div>
           </form>

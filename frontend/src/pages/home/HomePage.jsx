@@ -27,12 +27,7 @@ const HomePage = () => {
               <img src={ripples} alt="Loading" />
             ) : (
               restaurants.map((restaurant) => (
-                <Link>
-                  <RestaurantCard
-                    key={restaurant._id}
-                    restaurant={restaurant}
-                  />
-                </Link>
+                <RestaurantCard key={restaurant._id} restaurant={restaurant} />
               ))
             )}
           </div>

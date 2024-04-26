@@ -7,12 +7,21 @@ import {
   updateMenu,
 } from "../controllers/menu.controller.js";
 import multer from "multer";
+import {multerSaveFilesOrg} from 'multer-savefilesorg'; 
 
-// Create multer upload middleware
-const upload = multer({ dest: "uploads" });
 
 //Create users router
 const router = Router();
+
+
+// Create multer upload middleware
+const upload = multer({
+  storage: multerSaveFilesOrg({
+      serverPath: `https://savefiles.org/api/v1/uploads`,
+      apiAccessToken: process.env.SAVEFILESORG_API_KEY,
+      relativePath: '/admin/menus/images/*'
+  })
+});
 
 //Define routes
 router.post("/:restaurantId", upload.single('image'), addMenu);

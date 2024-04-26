@@ -30,36 +30,10 @@ const style = {
   p: 4,
 };
 
-const OrderTable = ({ownerOrders}) => {
+const OrderTable = ({ ownerOrders }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-
-  const updateStatus = async (event) => {
-    try {
-      event.preventDefault(); // Prevent default form submission
-
-      const response = await fetch(`http://localhost:4000/orders/`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          status: 'Pending'
-        }),
-      });
-
-      if (response.status !== 201) {
-        toast.error("Failed update status");
-      } else {
-        toast.success("Order status was successfully updated");
-        // navigate("/adminprofile/orders");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <>
@@ -112,6 +86,7 @@ const OrderTable = ({ownerOrders}) => {
           </TableContainer>
         </Card>
       </Box>
+
       <Modal
         open={open}
         onClose={handleClose}

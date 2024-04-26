@@ -13,6 +13,8 @@ li {
     list-style: none;
 }
 
+
+
 @layer components{
     
     .resumeLi {

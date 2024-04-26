@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <>
       <div>
-        <footer className="bg-brown text-white">
+        <footer className="bg-[#536d1b] text-white">
           <div className="container mx-auto px-20 lg:px-20 pt-20 flex flex-col gap-5 md:flex-row justify-between border-t border-slate-800">
             <div className="flex">
               <img src={logo} className="w-64 h-64" />

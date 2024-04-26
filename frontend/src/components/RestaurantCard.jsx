@@ -35,7 +35,7 @@ const RestaurantCard = ({ restaurant }) => {
                       {restaurant.name}
                     </p>
                   </div>
-                  {/* <div>
+                  <div className="ml-14">
                     <IconButton className="">
                       {true ? (
                         <FavoriteIcon
@@ -47,7 +47,7 @@ const RestaurantCard = ({ restaurant }) => {
                         <FavoriteBorderIcon />
                       )}
                     </IconButton>
-                  </div> */}
+                  </div>
                 </div>
                 <p className="text-[#3c2a0c] text-sm">
                   {restaurant.description}

@@ -170,7 +170,13 @@ const RestaurantForm = () => {
                 </TextField>
               </Grid>
             </Grid>
-            <Button variant="contained" color="primary" type="submit">
+            <Button sx={{
+                  color: "dark",
+                  backgroundColor: "#536d1b",
+                  "&:hover": {
+                    backgroundColor: "#bda915",
+                  },
+                }} variant="contained" type="submit">
               Create Restaurant
             </Button>
           </form>

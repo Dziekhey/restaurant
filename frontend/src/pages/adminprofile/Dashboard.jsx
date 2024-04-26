@@ -15,10 +15,14 @@ const Dashboard = () => {
 
 
 
+ const navigate = useNavigate();
   const { owner, loading } = useQueryOwners(ownerId);
 
-  const navigate = useNavigate();
-  const [checked, setChecked] = useState(false);
+if (!owner.restaurant.status) {
+  return <div>Loading.....</div>
+}
+
+  const [checked, setChecked] = useState(owner?.restaurant?.status === 'Closed'? true : false);
 
 
 
@@ -111,12 +115,13 @@ const Dashboard = () => {
                     <Button
                       onClick={handleLogout}
                       variant="contained"
+                     
                       sx={{
                         margin: "1rem 2rem",
-                        color: "#3c2a0c",
-                        backgroundColor: "#d99e06",
+                        color: "dark",
+                        backgroundColor: "#536d1b",
                         "&:hover": {
-                          backgroundColor: "#917617",
+                          backgroundColor: "#bda915",
                         },
                       }}
                     >

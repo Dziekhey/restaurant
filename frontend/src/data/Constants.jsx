@@ -4,6 +4,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import EventIcon from "@mui/icons-material/Event";
 import LogoutIcon from "@mui/icons-material/Logout";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import PersonIcon from "@mui/icons-material/Person";
 import ShopTwoIcon from "@mui/icons-material/ShopTwo";
 import barbecue from "../assets/barbecue.jpg";
 import kebab from "../assets/kebab.jpg";
@@ -62,11 +63,15 @@ const navigations = [
   //     icon: <ShoppingCartIcon />
   // },
   {
-    title: "favorites",
-    icon: <FavoriteIcon />,
+    title: "Profile",
+    icon: <PersonIcon />,
   },
   {
     title: "Orders",
+    icon: <ShoppingBagIcon />,
+  },
+  {
+    title: "Browse Restaurants",
     icon: <ShoppingBagIcon />,
   },
   // {
@@ -77,10 +82,10 @@ const navigations = [
   //   title: "Notifications",
   //   icon: <NotificationsIcon />,
   // },
-  {
-    title: "Logout",
-    icon: <LogoutIcon />,
-  },
+  // {
+  //   title: "Logout",
+  //   icon: <LogoutIcon />,
+  // },
 ];
 
 const orders = [1, 2, 3];

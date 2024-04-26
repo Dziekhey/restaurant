@@ -7,7 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        brown: '#3C2A0C'
+        brown: '#3C2A0C',
+        dark: '#536d1b',
+        light: '#bda915',
+        warning: '#bda915',
       }
     },
   },
