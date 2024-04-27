@@ -24,10 +24,10 @@ const AdminSideBar = ({handleClose}) => {
           anchor="left"
           sx={{ zIndex: 1, position: "sticky"  }}
         >
-          <div className="lg:w-[20vw] h-screen flex flex-col bg-amber-200 justify-center text-xl space-y-[1.65rem]">
+          <div className="lg:w-[20vw] h-screen flex flex-col bg-[#536d1b] justify-center text-xl space-y-[1.65rem]">
             {adminMenus.map((item, index) => (
               <>
-                <div className="px-5 flex items-center text-[#3c2a0c]  gap-5 py-5 cursor-pointer" onClick={() => handleNavigate(item)}>
+                <div className="px-5 flex items-center text-white  gap-5 py-5 cursor-pointer" onClick={() => handleNavigate(item)}>
                   {item.icon}
                   <span>{item.title}</span>
                 </div>

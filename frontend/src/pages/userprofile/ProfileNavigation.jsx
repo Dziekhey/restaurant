@@ -22,12 +22,12 @@ const ProfileNavigation = ({ open, handleClose }) => {
           anchor="left"
           sx={{ zIndex: -1, position: "sticky" }}
         >
-          <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col bg-amber-200 space-y-8 text-xl gap-8 justify-center pt-24">
+          <div className="w-[50vw] lg:w-[20vw] h-[100vh] flex flex-col bg-[#536d1b] space-y-8 text-xl gap-8 justify-center pt-24">
             {navigations.map((navigation, index) => (
               <>
                 <div key={index}
                   onClick={() => handleNavigate(navigation)}
-                  className="px-5 flex space-x-5 cursor-pointer"
+                  className="px-5 text-white flex space-x-5 cursor-pointer"
                 >
                   {navigation.icon}
                   <span>{navigation.title}</span>

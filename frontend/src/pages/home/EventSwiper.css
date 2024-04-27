@@ -1,0 +1,23 @@
+.event-swiper{
+    width: 100%;
+    height: 60vh;
+    padding-top: 72px;
+  }
+  
+  .event-swiperslide {
+    text-align: center;
+    font-size: 10px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide card {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

@@ -8,27 +8,33 @@ import {
   Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import eventImg from "../assets/event.jpg";
 
-const EventCard = () => {
+const EventCard = ({ event }) => {
   return (
     <>
-      <Card sx={{ width: 300 }} className="">
-        <CardMedia image={eventImg} sx={{ height: 300 }} />
+      <Card sx={{ width: 400, height: 400 }} className="">
+        <CardMedia image={event.image} sx={{ height: 150 }} />
         <CardContent>
-          <Typography variant="h5">Restaurant's Name</Typography>
-          <Typography variant="h5">50% off on your first order</Typography>
-          <div className="py-2 space-y-2 ">
-            <p>{"Location"}</p>
-            <p className="text-sm text-blue-400">February 14, 2024: 12:00AM</p>
-            <p className="text-sm text-red-400">February 15, 2024: 12:00AM</p>
+          <h1 className="text-3xl text-brown font-bold">{event.restaurant}</h1>
+          <div>
+            <p className="text-sm text-brown pt-3">
+              {event.name}: <span>{event.description}</span>
+            </p>
+          </div>
+
+          <div className="flex pt-3  justify-center">
+            <p className="text-xl text-blue-400">From {event.start} - </p>
+            <span>{' '} </span>
+            <p className="text-xl text-red-400">To {event.end}</p>
           </div>
         </CardContent>
-       {false && <CardActions>
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </CardActions>}
+        {false && (
+          <CardActions>
+            <IconButton>
+              <DeleteIcon />
+            </IconButton>
+          </CardActions>
+        )}
       </Card>
     </>
   );

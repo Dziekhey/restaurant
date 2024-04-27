@@ -18,11 +18,9 @@ const Dashboard = () => {
  const navigate = useNavigate();
   const { owner, loading } = useQueryOwners(ownerId);
 
-if (!owner.restaurant.status) {
-  return <div>Loading.....</div>
-}
 
-  const [checked, setChecked] = useState(owner?.restaurant?.status === 'Closed'? true : false);
+
+  const [checked, setChecked] = useState(false);
 
 
 

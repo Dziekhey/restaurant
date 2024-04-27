@@ -47,14 +47,14 @@ const UserRegister = () => {
       <Typography
         variant="h5"
         sx={{ fontWeight: "bold", mt: 1 }}
-        className="text-center text-[#3c2a0c] pt-4"
+        className="text-center text-[#3c2a0c] pt-6"
       >
        Customer Registration
       </Typography>
-      <div className="min-h-[60vh] flex p-6 justify-center items-center text-center">
+      <div className="min-h-[60vh] flex px-6 justify-center items-center text-center">
         <img src={logo} alt="Logo" className=" md:h-full md:w-auto" />
 
-        <div className="px-8 flex flex-col">
+        <div className="px-8 pt-2 flex flex-col">
           <form onSubmit={registerUser}>
             <TextField
               id="outlined-basic"
@@ -115,7 +115,7 @@ const UserRegister = () => {
             <Typography
               variant="body2"
               align="center"
-              sx={{  color: "#bda915" }}
+              sx={{  color: "#3c2a0c" }}
             >
               Have an account already?
             </Typography>
@@ -123,7 +123,6 @@ const UserRegister = () => {
               size="small"
               variant="outlined"
               color="error"
-              sx={{ color: "light" }}
               onClick={() => navigate('/account/users/login')}
             >
               Login

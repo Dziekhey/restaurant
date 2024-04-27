@@ -23,6 +23,7 @@ const Hero = () => {
         <Swiper
           spaceBetween={30}
           effect={"fade"}
+          loop={true}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -84,7 +85,7 @@ const Hero = () => {
                   variant="contained"
                   className=" transition ease-in-out delay-300 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-700"
                 >
-                  Sign in as a Vendor
+                  Sign in as an Owner
                 </Button>
               </Link>
             </span>

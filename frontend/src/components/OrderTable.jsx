@@ -47,15 +47,15 @@ const OrderTable = ({ ownerOrders }) => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>id</TableCell>
-                  <TableCell align="center">Food Image</TableCell>
-                  <TableCell align="center">Food Name</TableCell>
-                  {/* <TableCell align="center">Ingredients</TableCell> */}
-                  <TableCell align="center">Quantity</TableCell>
-                  <TableCell align="center">GH₵ Price</TableCell>
-                  <TableCell align="center">Customer</TableCell>
-                  <TableCell align="center">Status</TableCell>
-                  <TableCell align="center">Edit</TableCell>
+                  <TableCell sx={{fontWeight: 'bold'}}>id</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Food Image</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Food Name</TableCell>
+                  {/* <TableCell align="center" sx={{fontWeight: 'bold'}}>Ingredients</TableCell> */}
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Quantity</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>GH₵ Price</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Customer</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Status</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Edit</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

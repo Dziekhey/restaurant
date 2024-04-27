@@ -15,7 +15,7 @@ const OrderCard = ({order}) => {
           </div>
         </div>
         <di>
-            <Button className="cursor-not-allowed" variant="contained" color="primary">{order.status}</Button>
+            <Button className="cursor-not-allowed" variant="contained" sx={{backgroundColor: '#bda915'}}>{order.status}</Button>
         </di>
       </Card>
     </>

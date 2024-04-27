@@ -46,14 +46,14 @@ const AdminRegister = () => {
       <Typography
         variant="h5"
         sx={{ fontWeight: "bold" }}
-        className="text-center text-[#3c2a0c]"
+        className="text-center text-[#3c2a0c] pt-6"
       >
         Restaurant Owners Registration
       </Typography>
-      <div className="min-h-[60vh] flex p-6 flex-col justify-center items-center text-center">
+      <div className="min-h-[60vh] flex px-6 justify-center items-center text-center">
         <img src={logo} alt="Logo" className=" md:h-full md:w-auto" />
 
-        <div className="p-8 flex flex-col">
+        <div className="px-8 pt-2 flex flex-col">
           <form className="" onSubmit={registerOwner}>
             <TextField
               id="outlined-basic"
@@ -110,11 +110,11 @@ const AdminRegister = () => {
               Register
             </Button>
           </form>
-          <div className="flex mt-10 space-x-4">
+          <div className="flex mt-7 space-x-4 items-center justify-center">
             <Typography
               variant="body2"
               align="center"
-              sx={{ mt: 1, color: "#3c2a0c" }}
+              sx={{  color: "#3c2a0c" }}
             >
               Have an account already?
             </Typography>
@@ -122,14 +122,6 @@ const AdminRegister = () => {
               size="small"
               variant="outlined"
               color="error"
-              sx={{
-                pt: 1,
-                color: "dark",
-                backgroundColor: "#536d1b",
-                "&:hover": {
-                  backgroundColor: "#bda915",
-                },
-              }}
               onClick={() => navigate("/account/admin/login")}
             >
               Login

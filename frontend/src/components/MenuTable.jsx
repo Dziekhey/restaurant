@@ -56,7 +56,7 @@ const MenuTable = () => {
               <>
                 <div>
                   <Link to="/adminprofile/add-menu">
-                    <IconButton aria-label="settings">
+                    <IconButton aria-label="settings"sx={{backgroundColor: '#bda915'}} >
                       <AddIcon />
                       <span>
                         <h6 className="px-1">Add Menu</h6>
@@ -73,13 +73,13 @@ const MenuTable = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">Image</TableCell>
-                  <TableCell align="center">Food Category</TableCell>
-                  <TableCell align="center">Food Name</TableCell>
-                  {/* <TableCell align="center">Ingredients</TableCell> */}
-                  <TableCell align="center">Price</TableCell>
-                  <TableCell align="center">Actions</TableCell>
-                  {/* <TableCell align="center">Add ingredients</TableCell> */}
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Image</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Food Category</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Food Name</TableCell>
+                  {/* <TableCell align="center" sx={{fontWeight: 'bold'}}>Ingredients</TableCell> */}
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Price</TableCell>
+                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Actions</TableCell>
+                  {/* <TableCell align="center" sx={{fontWeight: 'bold'}}>Add ingredients</TableCell> */}
                 </TableRow>
               </TableHead>
               <TableBody>

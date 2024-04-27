@@ -34,10 +34,10 @@ const UserProfile = () => {
             variant="contained"
             sx={{
               margin: "2rem 0rem",
-              color: "#3c2a0c",
-              backgroundColor: "#d99e06",
+              color: "dark",
+              backgroundColor: "#536d1b",
               "&:hover": {
-                backgroundColor: "#917617",
+                backgroundColor: "#bda915",
               },
             }}
           >
