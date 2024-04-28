@@ -26,7 +26,7 @@ const Footer = () => {
                     <IconButton>
                       <HowToRegIcon sx={{ color: "white" }} />
                     </IconButton>
-                    <h1 className="pt-2">Register as a vendor</h1>
+                    <h1 className="pt-2">Register for your Restaurant</h1>
                   </div>
                 </Link>
                 <Link to="/account/admin/login">
@@ -34,7 +34,7 @@ const Footer = () => {
                     <IconButton>
                       <LoginIcon sx={{ color: "white" }} />
                     </IconButton>
-                    <h1 className="pt-2">Login as a vendor</h1>
+                    <h1 className="pt-2">Login to your restaurant's dashboard</h1>
                   </div>
                 </Link>
               </div>

@@ -40,7 +40,7 @@ const RestaurantPage = () => {
       <Navbar />
       <div>
         <section>
-          <img src={sample} className="w-full h-[60vh] object-cover" />
+          <img src={`https://savefiles.org/${data?.image}?shareable_link=211`} className="w-full h-[60vh] object-cover" />
           <div className="pt-3 pb-5 px-5 lg:px-20">
             <h1 className="text-4xl font-semibold text-[#3c2a0c]">
               {data?.name}

@@ -7,7 +7,7 @@ const OrderCard = ({order}) => {
     <>
       <Card className="flex justify-between items-center p-5">
         <div className="flex items-center space-x-7">
-          <img src={foodImg} alt="Food Image" className="h-16 w-16 object-cover" />
+          <img src={`https://savefiles.org/${order.image}?shareable_link=205`} alt="Food Image" className="h-16 w-16 object-cover" />
           <div>
             <p>{order.restaurant_name}</p>
             <p>{order.foodname}</p>

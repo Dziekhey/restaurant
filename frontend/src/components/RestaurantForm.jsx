@@ -6,8 +6,10 @@ import { status } from "../data/Constants";
 
 
 const RestaurantForm = () => {
-  const auth = useAuth();
-  if (!auth.token) return <Navigate to="/account/admin/login" />;
+
+  const ownerToken = localStorage.getItem("ownerToken");
+  const ownerId = localStorage.getItem("ownerId");
+  if (!ownerToken) return <Navigate to="/account/admin/login" />;
 
   const navigate = useNavigate();
 
@@ -17,7 +19,7 @@ const RestaurantForm = () => {
 
       const formData = new FormData(event.target);
 
-      const ownerId = auth.user._id;
+    
       const response = await fetch(
         `http://localhost:4000/restaurants/${ownerId}`,
         {

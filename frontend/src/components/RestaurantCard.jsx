@@ -10,14 +10,14 @@ const RestaurantCard = ({ restaurant }) => {
     <>
       <div>
         <Link to={`/restaurants/${restaurant._id}`}>
-          <Card style={{}} className=" w-[18rem] ">
+          <Card style={{width: 350}} className=" w-[18rem] ">
             <div
               className={`${
                 true ? "cursor-pointer" : "cursor-not-allowed"
               } relative`}
             >
               <img
-                src={sample}
+                src={`https://savefiles.org/${restaurant.image}?shareable_link=211`}
                 className="w-full h-[10rem] rounded-t-md object-cover"
               />
               <Chip

@@ -50,11 +50,11 @@ const Hero = () => {
               Begin Your Culinary Adventure with BiteHub,
               <br /> where Flavor Meets Convenience.
             </p>
-            <p className="z-10 py-4 text-[#B56401] text-xl font-medium lg:text-4xl">
+            <p className="z-10 py-6 text-[#B56401] text-xl font-medium lg:text-4xl">
               Order In, Pick Up in Minutes.
             </p>
           </div>
-          <div className="space-x-10 py-5">
+          <div className="space-x-10 pt-7">
             <Link to="/account/users/login">
               <Button
                 variant="contained"

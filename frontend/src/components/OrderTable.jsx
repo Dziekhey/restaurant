@@ -47,15 +47,31 @@ const OrderTable = ({ ownerOrders }) => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{fontWeight: 'bold'}}>id</TableCell>
-                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Food Image</TableCell>
-                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Food Name</TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    Food Image
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    Food Name
+                  </TableCell>
                   {/* <TableCell align="center" sx={{fontWeight: 'bold'}}>Ingredients</TableCell> */}
-                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Quantity</TableCell>
-                  <TableCell align="center" sx={{fontWeight: 'bold'}}>GH₵ Price</TableCell>
-                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Customer</TableCell>
-                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Status</TableCell>
-                  <TableCell align="center" sx={{fontWeight: 'bold'}}>Edit</TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    Quantity
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    GH₵ Price
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    Customer
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    Customer's No.
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    Status
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    Edit
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -64,15 +80,18 @@ const OrderTable = ({ ownerOrders }) => {
                     key={order.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="order">
-                      {order._id}
+                    <TableCell align="center">
+                      <img
+                        src={`https://savefiles.org/${order.image}?shareable_link=205`}
+                        className="w-[7rem] h-[7rem] object-cover"
+                      />
                     </TableCell>
-                    <TableCell align="center">{order.image}</TableCell>
                     <TableCell align="center">{order.foodname}</TableCell>
                     <TableCell align="center">{order.quantity}</TableCell>
                     {/* <TableCell align="center">{'2'}</TableCell> */}
                     <TableCell align="center">{order.totalprice}</TableCell>
                     <TableCell align="center">{order.username}</TableCell>
+                    <TableCell align="center">{order.telephone}</TableCell>
                     <TableCell align="center">{order.status}</TableCell>
                     <TableCell align="center">
                       <IconButton key={order._id} onClick={handleOpen}>

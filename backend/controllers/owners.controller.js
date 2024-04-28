@@ -30,7 +30,7 @@ export const addOwner = async (req, res, next) => {
     }
 
     //Check if telephone number is up to 10
-    if (!telephone || telephone.length !== 10) {
+    if (!telephone || telephone.length < 10) {
       return res.status(400).json({
         error: "Telephone number is required and should be 10 characters long",
       });

@@ -35,6 +35,7 @@ const MenuForm = () => {
   const auth = useAuth();
 
   const ownerId = localStorage.getItem("ownerId");
+  // const restaurantId = localStorage.getItem("restaurantId");
 
   const navigate = useNavigate();
 
@@ -156,17 +157,23 @@ const MenuForm = () => {
               </Grid> */}
             </Grid>
             <div className="flex justify-between">
-              <Button variant="contained" color="primary" type="submit">
+              <Button variant="contained" color="primary" type="submit"  sx={{
+                color: "dark",
+                backgroundColor: "#536d1b",
+                "&:hover": {
+                  backgroundColor: "#bda915",
+                },
+              }}>
                 Add Menu
               </Button>
               <Link to="/adminprofile/menu">
-                <Button sx={{
-                  color: "dark",
-                  backgroundColor: "#536d1b",
-                  "&:hover": {
-                    backgroundColor: "#bda915",
-                  },
-                }} variant="contained" color="primary" type="submit">
+                <Button  sx={{
+                color: "dark",
+                backgroundColor: "#536d1b",
+                "&:hover": {
+                  backgroundColor: "#bda915",
+                },
+              }} variant="contained" color="primary" type="submit">
                   Close
                 </Button>
               </Link>

@@ -91,12 +91,13 @@ const MenuTable = () => {
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
                       <TableCell component="th" scope="order">
-                        {menu.image}
+                        <img src={`https://savefiles.org/${menu.image}?shareable_link=205`}  className="w-[7rem] h-[7rem] object-cover" />
+                        
                       </TableCell>
                       <TableCell align="center">{menu.category}</TableCell>
                       <TableCell align="center">{menu.name}</TableCell>
                       {/* <TableCell align="center">{"2"}</TableCell> */}
-                      <TableCell align="center">{menu.price}</TableCell>
+                      <TableCell align="center">GH₵{menu.price}</TableCell>
                       <TableCell align="center">
                         <IconButton>
                           <Delete />

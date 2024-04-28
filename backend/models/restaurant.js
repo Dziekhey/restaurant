@@ -1,18 +1,18 @@
 import mongoose, { Schema, model } from "mongoose";
 
 const restaurantSchema = new Schema({
-  image: {type: String},
-  name: { type: String},
-  email: { type: String},
-  telephone: { type: String},
-  description: { type: String},
-  cuisineType: { type: String},
-  openingDays: { type: String},
-  openingHours: { type: String},
-  region: { type: String},
-  city: { type: String},
-  town: { type: String},
-  status: { type: String},
+  image: {type: String, required: true},
+  name: { type: String, required: true},
+  email: { type: String, required: true},
+  telephone: { type: String, required: true},
+  description: { type: String, required: true},
+  cuisineType: { type: String, required: true},
+  openingDays: { type: String, required: true},
+  openingHours: { type: String, required: true},
+  region: { type: String, required: true},
+  city: { type: String, required: true},
+  town: { type: String, required: true},
+  status: { type: String, required: true},
   menus: [
     {
       type: mongoose.Schema.Types.ObjectId,
