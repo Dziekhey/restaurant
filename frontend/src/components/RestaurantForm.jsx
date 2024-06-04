@@ -21,7 +21,7 @@ const RestaurantForm = () => {
 
     
       const response = await fetch(
-        `http://localhost:4000/restaurants/${ownerId}`,
+        `${import.meta.env.VITE_APP_API_URL}/restaurants/${ownerId}`,
         {
           method: "POST",
           body: formData,

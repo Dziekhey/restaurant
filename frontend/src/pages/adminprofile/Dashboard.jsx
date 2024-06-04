@@ -31,7 +31,7 @@ const Dashboard = () => {
       // const formData = new FormData(event.target);
       // setStatus(owners.restaurant.status === 'closed'? "closed" : "open");
       const response = await fetch(
-        `http://localhost:4000/restaurants/${owner.restaurant._id}`,
+        `${import.meta.env.VITE_APP_API_URL}/restaurants/${owner.restaurant._id}`,
         {
           method: "PATCH",
           headers: {
@@ -95,7 +95,10 @@ const Dashboard = () => {
   return (
     <>
       {loading ? (
-        <img src={ripples} />
+        <div className="flex justify-center items-center">
+
+          <img src={ripples} alt="Loading" className="size-96 mt-28" />
+        </div>
       ) : (
         owner &&
         owner.restaurant && (

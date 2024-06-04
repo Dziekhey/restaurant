@@ -14,7 +14,7 @@ const AdminRegister = () => {
     const formData = new FormData(event.target);
     try {
       // Post form data to the backend
-      const response = await fetch("http://localhost:4000/owners/register", {
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/owners/register`, {
         method: "POST",
         body: JSON.stringify({
           name: formData.get("name"),

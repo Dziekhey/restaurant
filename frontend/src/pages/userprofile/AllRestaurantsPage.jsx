@@ -11,7 +11,7 @@ const AllRestaurantsPage = () => {
    
     <div className="flex flex-wrap pt-8 px-3 items-center justify-around gap-5">
             {loading ? (
-              <img src={ripples} alt="Loading" />
+              <img src={ripples} alt="Loading" className='size-96' />
             ) : (
               restaurants.map((restaurant) => (
                 <RestaurantCard key={restaurant._id} restaurant={restaurant} />

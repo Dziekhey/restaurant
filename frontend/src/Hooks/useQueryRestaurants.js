@@ -20,7 +20,7 @@ const useQueryRestaurant = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:4000/restaurants");
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/restaurants`);
       const result = await response.json();
       setRestaurants(result);
       setLoading(false);

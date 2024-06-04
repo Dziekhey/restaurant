@@ -17,7 +17,7 @@ const StatusForm = (id) => {
       event.preventDefault(); // Prevent default form submission
 
   
-      const response = await fetch(`http://localhost:4000/orders/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/orders/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
 
   const loginUserAction = async (data) => {
     try {
-      const response = await fetch("http://localhost:4000/users/login", {
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
 
   const loginOwnerAction = async (data) => {
     try {
-      const response = await fetch("http://localhost:4000/owners/login", {
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/owners/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

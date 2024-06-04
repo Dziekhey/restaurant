@@ -15,7 +15,7 @@ const useQueryOwner = (id) => {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:4000/owners/${id}`);
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/owners/${id}`);
       const result = await response.json();
       setOwner(result);
       setLoading(false);

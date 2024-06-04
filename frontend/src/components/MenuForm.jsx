@@ -50,7 +50,7 @@ const MenuForm = () => {
       // Access restaurantId from owners
       // const restaurantId = auth.user._id;
       const response = await fetch(
-        `http://localhost:4000/menus/${owner.restaurant._id}`,
+        `${import.meta.env.VITE_APP_API_URL}/menus/${owner.restaurant._id}`,
         {
           method: "POST",
           body: formData,

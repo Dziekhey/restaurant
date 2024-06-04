@@ -23,7 +23,7 @@ const RestaurantPage = () => {
   const { id } = useParams();
   const [category, setCategory] = useState("All");
   const { data, loading, error } = useSWR(
-    `http://localhost:4000/restaurants/${id}`,
+    `${import.meta.env.VITE_APP_API_URL}/restaurants/${id}`,
     getRestaurant
   );
 

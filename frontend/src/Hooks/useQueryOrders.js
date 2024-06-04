@@ -9,7 +9,7 @@ const useQueryOrders = (restaurantId, userId) => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:4000/orders");
+      const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/orders`);
       const result = await response.json();
       const restaurant = result.filter((res) => res?.restaurantId == restaurantId);
       setOwnerOrders(restaurant);
