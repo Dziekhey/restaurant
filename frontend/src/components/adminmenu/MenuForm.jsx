@@ -1,21 +1,14 @@
 import {
-  Box,
   Button,
-  Chip,
-  FormControl,
   Grid,
   InputAdornment,
-  InputLabel,
   MenuItem,
-  OutlinedInput,
-  Select,
   TextField,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../services/useAuth";
 import toast, { Toaster } from "react-hot-toast";
-import useQueryOwners from "../Hooks/useQueryOwner";
+import useQueryOwners from "../../Hooks/useQueryOwner";
 
 const categories = [
   { value: "Seafood", label: "Seafood" },
@@ -26,20 +19,12 @@ const categories = [
   { value: "Gourmet and Fine Dining", label: "Gourmet and Fine Dining" },
 ];
 
-const availabilty = [
-  { value: "In Stock", label: "In Stock" },
-  { value: "Out of Stock", label: "Out of Stock" },
-];
 
 const MenuForm = () => {
-  const auth = useAuth();
-
   const ownerId = localStorage.getItem("ownerId");
-  // const restaurantId = localStorage.getItem("restaurantId");
+  const { owner } = useQueryOwners(ownerId);
 
   const navigate = useNavigate();
-
-  const { owner, loading } = useQueryOwners(ownerId);
 
   const addMenu = async (event) => {
     try {
@@ -47,8 +32,6 @@ const MenuForm = () => {
 
       const formData = new FormData(event.target);
 
-      // Access restaurantId from owners
-      // const restaurantId = auth.user._id;
       const response = await fetch(
         `${import.meta.env.VITE_APP_API_URL}/menus/${owner.restaurant._id}`,
         {
@@ -139,22 +122,6 @@ const MenuForm = () => {
                   ))}
                 </TextField>
               </Grid>
-              {/* <Grid item xs={12} lg={6}>
-                <TextField
-                  id="outlined-select-currency"
-                  select
-                  label="Food Avalability"
-                  name="availability"
-                  defaultValue="GH"
-                  fullWidth
-                >
-                  {availabilty.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </Grid> */}
             </Grid>
             <div className="flex justify-between">
               <Button variant="contained" color="primary" type="submit"  sx={{

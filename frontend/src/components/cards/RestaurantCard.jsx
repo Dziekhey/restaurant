@@ -1,6 +1,5 @@
 import { Card, Chip, IconButton } from "@mui/material";
 import React from "react";
-import sample from "../assets/hero.jpg";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router-dom";

@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import OrderTable from "../../components/OrderTable";
+import OrderTable from "../../components/adminorders/OrderTable";
 import { lime } from "@mui/material/colors";
 import useQueryOrders from "../../Hooks/useQueryOrders";
 import ripples from '../../assets/ripples.svg'
@@ -22,7 +22,7 @@ const AdminOrders = () => {
 
   const [filterValue, setFilterValue] = useState();
 
-  const { ownerOrders} = useQueryOrders(restaurantId);
+  const { ownerOrders, setOwnerOrders} = useQueryOrders(restaurantId);
 
 
   if(!ownerOrders){
@@ -65,7 +65,7 @@ const AdminOrders = () => {
           </FormControl>
           </div>
         </Card>
-        <OrderTable ownerOrders={ownerOrders} />
+        <OrderTable ownerOrders={ownerOrders} setOwnerOrders={setOwnerOrders} />
       </div>
     </>
   );

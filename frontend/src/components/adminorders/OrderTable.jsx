@@ -3,7 +3,6 @@ import {
   Card,
   CardHeader,
   IconButton,
-  Modal,
   Paper,
   Table,
   TableBody,
@@ -12,28 +11,42 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import CreateIcon from "@mui/icons-material/Create";
-import StatusForm from "./StatusForm";
+import StatusModal from "./StatusModal";
 
-const orders = [1, 2, 3, 4, 5];
+const OrderTable = ({ ownerOrders, setOwnerOrders }) => {
+  const [open, setOpen] = useState(false);
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+  const handleOpen = (orderId) => {
+    setSelectedOrderId(orderId);
+    setOpen(true);
+  };
 
-const OrderTable = ({ ownerOrders }) => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedOrderId(null);
+  };
+
+  const updateOrderStatus = (id, newStatus) => {
+    setOwnerOrders((prevOrders) =>
+      prevOrders.map((order) =>
+        order._id === id ? { ...order, status: newStatus } : order
+      )
+    );
+  };
+
+  const getStatusClass = (status) => {
+    switch (status) {
+      case "Pending":
+        return "bg-pink-500";
+      case "Completed":
+        return "bg-green-500";
+      case "Failed":
+        return "bg-red-500";
+    }
+  };
 
   return (
     <>
@@ -53,7 +66,6 @@ const OrderTable = ({ ownerOrders }) => {
                   <TableCell align="center" sx={{ fontWeight: "bold" }}>
                     Food Name
                   </TableCell>
-                  {/* <TableCell align="center" sx={{fontWeight: 'bold'}}>Ingredients</TableCell> */}
                   <TableCell align="center" sx={{ fontWeight: "bold" }}>
                     Quantity
                   </TableCell>
@@ -70,7 +82,7 @@ const OrderTable = ({ ownerOrders }) => {
                     Status
                   </TableCell>
                   <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                    Edit
+                    Action
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -88,13 +100,23 @@ const OrderTable = ({ ownerOrders }) => {
                     </TableCell>
                     <TableCell align="center">{order.foodname}</TableCell>
                     <TableCell align="center">{order.quantity}</TableCell>
-                    {/* <TableCell align="center">{'2'}</TableCell> */}
                     <TableCell align="center">{order.totalprice}</TableCell>
                     <TableCell align="center">{order.username}</TableCell>
                     <TableCell align="center">{order.telephone}</TableCell>
-                    <TableCell align="center">{order.status}</TableCell>
                     <TableCell align="center">
-                      <IconButton key={order._id} onClick={handleOpen}>
+                      <h3
+                        className={`cursor-not-allowed text-white shadow-md rounded-md font-bold px-3 py-2 ${getStatusClass(
+                          order.status
+                        )}`}
+                      >
+                        {order.status}
+                      </h3>
+                    </TableCell>
+                    <TableCell align="center">
+                      <IconButton
+                        key={order._id}
+                        onClick={() => handleOpen(order._id)}
+                      >
                         <CreateIcon />
                       </IconButton>
                     </TableCell>
@@ -105,17 +127,15 @@ const OrderTable = ({ ownerOrders }) => {
           </TableContainer>
         </Card>
       </Box>
-
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <StatusForm />
-        </Box>
-      </Modal>
+      {selectedOrderId && (
+        <StatusModal
+          open={open}
+          setOpen={setOpen}
+          updateOrderStatus={updateOrderStatus}
+          handleClose={handleClose}
+          orderId={selectedOrderId}
+        />
+      )}
     </>
   );
 };

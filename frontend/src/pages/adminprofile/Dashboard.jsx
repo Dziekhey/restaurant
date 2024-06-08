@@ -6,23 +6,17 @@ import useQueryOwners from "../../Hooks/useQueryOwner";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Switch from "react-switch";
-import ripples from '../../assets/ripples.svg';
+import ripples from "../../assets/ripples.svg";
 
 const Dashboard = () => {
   const auth = useAuth();
- const ownerToken = localStorage.getItem("ownerToken");
- const ownerId = localStorage.getItem("ownerId");
+  const ownerToken = localStorage.getItem("ownerToken");
+  const ownerId = localStorage.getItem("ownerId");
 
-
-
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const { owner, loading } = useQueryOwners(ownerId);
 
-
-
   const [checked, setChecked] = useState(false);
-
-
 
   const handleChange = async (nextChecked) => {
     setChecked(nextChecked);
@@ -31,7 +25,9 @@ const Dashboard = () => {
       // const formData = new FormData(event.target);
       // setStatus(owners.restaurant.status === 'closed'? "closed" : "open");
       const response = await fetch(
-        `${import.meta.env.VITE_APP_API_URL}/restaurants/${owner.restaurant._id}`,
+        `${import.meta.env.VITE_APP_API_URL}/restaurants/${
+          owner.restaurant._id
+        }`,
         {
           method: "PATCH",
           headers: {
@@ -96,7 +92,6 @@ const Dashboard = () => {
     <>
       {loading ? (
         <div className="flex justify-center items-center">
-
           <img src={ripples} alt="Loading" className="size-96 mt-28" />
         </div>
       ) : (
@@ -112,11 +107,10 @@ const Dashboard = () => {
               <Grid item xs={12}>
                 <div className="flex flex-col items-center justify-center">
                   <AccountCircleIcon sx={{ fontSize: "7rem" }} />
-                  <div>
+                  <div className="flex">
                     <Button
                       onClick={handleLogout}
                       variant="contained"
-                     
                       sx={{
                         margin: "1rem 2rem",
                         color: "dark",
@@ -136,20 +130,22 @@ const Dashboard = () => {
                     >
                       {owner.restaurant.status }
                     </Button> */}
-                    <Switch
-                      onChange={handleChange}
-                      checked={checked}
-                      className="react-switch"
-                      onColor="#86d3ff"
-                      onHandleColor="#2693e6"
-                      handleDiameter={30}
-                      uncheckedIcon={false}
-                      checkedIcon={false}
-                      boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-                      activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-                      height={20}
-                      width={48}
-                    />
+                    <div className="pt-5">
+                      <Switch
+                        onChange={handleChange}
+                        checked={checked}
+                        className="react-switch"
+                        onColor="#86d3ff"
+                        onHandleColor="#2693e6"
+                        handleDiameter={30}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                        activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                        height={20}
+                        width={48}
+                      />
+                    </div>
                   </div>
                 </div>
               </Grid>

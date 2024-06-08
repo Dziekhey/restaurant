@@ -1,9 +1,9 @@
 import { Divider } from "@mui/material";
 import React from "react";
-import CartCard from "../../components/CartCard";
 import { cartOrders } from "../../data/Constants";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import CartCard from "../../components/cards/CartCard";
 
 const CartPage = () => {
   return (

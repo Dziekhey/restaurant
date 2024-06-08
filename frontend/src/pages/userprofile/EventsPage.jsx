@@ -1,6 +1,6 @@
 import React from 'react';
 import { events } from '../../data/Constants';
-import EventCard from '../../components/EventCard';
+import EventCard from '../../components/cards/EventCard';
 
 
 

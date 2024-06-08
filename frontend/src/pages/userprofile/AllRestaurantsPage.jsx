@@ -1,7 +1,7 @@
 import React from 'react'
 import useQueryRestaurant from '../../Hooks/useQueryRestaurants';
-import RestaurantCard from '../../components/RestaurantCard';
 import ripples from '../../assets/ripples.svg';
+import RestaurantCard from '../../components/cards/RestaurantCard';
 
 const AllRestaurantsPage = () => {
 

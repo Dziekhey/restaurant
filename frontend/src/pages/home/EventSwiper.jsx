@@ -8,8 +8,8 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import "./EventSwiper.css";
-import EventCard from "../../components/EventCard";
 import { events } from "../../data/Constants";
+import EventCard from "../../components/cards/EventCard";
 
 const EventSwiper = () => {
   return (

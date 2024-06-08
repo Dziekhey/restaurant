@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import cartImg from "../assets/hero.jpg";
+import cartImg from "../../assets/hero.jpg";
 import { Chip, IconButton, Button } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { wantedIngredients } from "../data/Constants";
+import { wantedIngredients } from "../../data/Constants";
 
 const CartCard = () => {
   const [number, setNumber] = useState(1);

@@ -4,14 +4,13 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { Divider } from "@mui/material";
 import Filter from "../../components/Filter.jsx";
-import { menus, restaurants } from "../../data/Constants.jsx";
-import MenuCard from "../../components/MenuCard.jsx";
 import Navbar from "../../components/Navbar.jsx";
 import Footer from "../../components/Footer.jsx";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import ripples from "../../assets/ripples.svg";
 import CallIcon from "@mui/icons-material/Call";
+import MenuCard from "../../components/cards/MenuCard.jsx";
 
 const getRestaurant = (...args) => {
   // Prepare url

@@ -9,14 +9,14 @@ const categories = [
 ];
 
 
-const StatusForm = (id) => {
-
+const StatusForm = ({ id, setOpen, updateOrderStatus }) => {
+  console.log(id)
   const [item, setItem] = useState('')
+
   const updateStatus = async (event) => {
     try {
-      event.preventDefault(); // Prevent default form submission
+      event.preventDefault(); 
 
-  
       const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/orders/${id}`, {
         method: "PATCH",
         headers: {
@@ -27,11 +27,12 @@ const StatusForm = (id) => {
         }),
       });
   
-      if (response.status !== 201) {
+      if (response.status !== 202) {
         toast.error("Failed to update order status");
       } else {
         toast.success("Order status was made successfully");
-        // navigate("/adminprofile/menu");
+        updateOrderStatus(id, item)
+        setOpen(false)
       }
     } catch (error) {
       console.log(error);

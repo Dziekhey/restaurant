@@ -3,16 +3,11 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
   Button,
   IconButton,
 } from "@mui/material";
 import toast from "react-hot-toast";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import menuImg from "../assets/hero.jpg";
-import { ingredients } from "../data/Constants";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
@@ -72,7 +67,6 @@ const MenuCard = ({ menu, restaurant }) => {
         toast.error("Failed to make order");
       } else {
         toast.success("Order was made successfully");
-        // navigate("/adminprofile/menu");
       }
     } catch (error) {
       console.log(error);
@@ -105,22 +99,6 @@ const MenuCard = ({ menu, restaurant }) => {
         <AccordionDetails>
           <p className="">{menu.description}</p>
           <form onSubmit={makeOrder}>
-            {/* <div className="flex gap-5 flex-wrap">
-              {ingredients.map((ingredient) => (
-                <div>
-                  <p>{ingredient.category}</p>
-                  <FormGroup>
-                    {ingredient.items.map((item) => (
-                      <FormControlLabel
-                        key={item}
-                        control={<Checkbox onChange={() => handleBoxChange(item)} />}
-                        label={item}
-                      />
-                    ))}
-                  </FormGroup>
-                </div>
-              ))}
-            </div> */}
             <div className="flex justify-between ml-8 items-center">
               <div className="flex items-center space-x-1">
                 <IconButton onClick={decreaseItem}>

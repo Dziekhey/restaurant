@@ -29,7 +29,7 @@ const useQueryOrders = (restaurantId, userId) => {
   }, []);
 
   return {
-    ownerOrders,userOrders
+    ownerOrders,setOwnerOrders, userOrders, loading
   };
 };
 
